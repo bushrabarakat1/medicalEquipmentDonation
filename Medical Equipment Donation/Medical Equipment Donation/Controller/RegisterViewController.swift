@@ -30,7 +30,7 @@ class RegisterViewController: UIViewController{
 }
 extension RegisterViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     @objc func selectimage(){
-        showUIAlert()
+        showAlert()
     }
     func showAlert() {
         let alert = UIAlertController(title: "choose Profile Picture", message: "where do you wont to pick your image from?", preferredStyle: .actionSheet)
@@ -46,7 +46,7 @@ extension RegisterViewController:UIImagePickerControllerDelegate,UINavigationCon
         alert.addAction(cameraAction)
         alert.addAction(galaryAction)
         alert.addAction(dismissAction)
-        self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func getImage(from sourceType: UIImagePickerController.SourceType){
