@@ -13,10 +13,9 @@ class RegisterViewController: UIViewController{
     var activityIndicator = UIActivityIndicatorView()
     @IBOutlet weak var userImageView: UIImageView!{
         didSet{
-        userImageView.isUserInteractionEnabled = true
-        let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
-        userImageView.addGesture
-            Recognizer(tabGesture)
+            userImageView.isUserInteractionEnabled = true
+            let tabGesture = UIGestureRecognizer(target: self, action: #selector(selectimage))
+            userImageView.addGestureRecognizer(tabGesture)
         }
     }
     @IBOutlet weak var userNameTextField: UITextField!
@@ -26,6 +25,11 @@ class RegisterViewController: UIViewController{
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var userConfirmPassword: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imagePickerController.delegate = self
+    }
     
 }
 extension RegisterViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
