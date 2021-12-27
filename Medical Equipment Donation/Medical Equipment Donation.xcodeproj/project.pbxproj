@@ -7,19 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1146412127788CEF00754E36 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1146412027788CEF00754E36 /* GoogleService-Info.plist */; };
+		1146412427788D9600754E36 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1146412327788D9600754E36 /* FirebaseAuth */; };
+		1146412627788D9600754E36 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1146412527788D9600754E36 /* FirebaseFirestore */; };
+		1146412827788D9600754E36 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1146412727788D9600754E36 /* FirebaseStorage */; };
+		1146412A2779960900754E36 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114641292779960900754E36 /* ImageView.swift */; };
+		1146412C2779982700754E36 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146412B2779982700754E36 /* User.swift */; };
+		1146412E27799B1B00754E36 /* Post Medical Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146412D27799B1B00754E36 /* Post Medical Equipment.swift */; };
+		1146413227799DB700754E36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146413127799DB700754E36 /* RegisterViewController.swift */; };
+		1146413427799E6500754E36 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146413327799E6500754E36 /* LoginViewController.swift */; };
 		118B22192777908F00B54273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B22182777908F00B54273 /* AppDelegate.swift */; };
 		118B221B2777908F00B54273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B221A2777908F00B54273 /* SceneDelegate.swift */; };
-		118B221D2777908F00B54273 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B221C2777908F00B54273 /* ViewController.swift */; };
 		118B22202777908F00B54273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118B221E2777908F00B54273 /* Main.storyboard */; };
 		118B22222777909200B54273 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 118B22212777909200B54273 /* Assets.xcassets */; };
 		118B22252777909200B54273 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118B22232777909200B54273 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1146411C27788BC700754E36 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		1146411D27788BC700754E36 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		1146411E27788C0300754E36 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		1146411F27788C0300754E36 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		1146412027788CEF00754E36 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		114641292779960900754E36 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		1146412B2779982700754E36 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1146412D27799B1B00754E36 /* Post Medical Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post Medical Equipment.swift"; sourceTree = "<group>"; };
+		1146413127799DB700754E36 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		1146413327799E6500754E36 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		118B22152777908F00B54273 /* Medical Equipment Donation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medical Equipment Donation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		118B22182777908F00B54273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		118B221A2777908F00B54273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		118B221C2777908F00B54273 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		118B221F2777908F00B54273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		118B22212777909200B54273 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		118B22242777909200B54273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -31,12 +48,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1146412427788D9600754E36 /* FirebaseAuth in Frameworks */,
+				1146412627788D9600754E36 /* FirebaseFirestore in Frameworks */,
+				1146412827788D9600754E36 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1146412F27799C7A00754E36 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1146412B2779982700754E36 /* User.swift */,
+				1146412D27799B1B00754E36 /* Post Medical Equipment.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1146413027799CA600754E36 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1146413127799DB700754E36 /* RegisterViewController.swift */,
+				1146413327799E6500754E36 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		118B220C2777908F00B54273 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +94,16 @@
 		118B22172777908F00B54273 /* Medical Equipment Donation */ = {
 			isa = PBXGroup;
 			children = (
-				118B22182777908F00B54273 /* AppDelegate.swift */,
-				118B221A2777908F00B54273 /* SceneDelegate.swift */,
-				118B221C2777908F00B54273 /* ViewController.swift */,
+				114641292779960900754E36 /* ImageView.swift */,
+				1146412F27799C7A00754E36 /* Model */,
+				1146413027799CA600754E36 /* Controller */,
 				118B221E2777908F00B54273 /* Main.storyboard */,
 				118B22212777909200B54273 /* Assets.xcassets */,
+				118B221A2777908F00B54273 /* SceneDelegate.swift */,
+				118B22182777908F00B54273 /* AppDelegate.swift */,
 				118B22232777909200B54273 /* LaunchScreen.storyboard */,
 				118B22262777909200B54273 /* Info.plist */,
+				1146412027788CEF00754E36 /* GoogleService-Info.plist */,
 			);
 			path = "Medical Equipment Donation";
 			sourceTree = "<group>";
@@ -83,6 +124,11 @@
 			dependencies = (
 			);
 			name = "Medical Equipment Donation";
+			packageProductDependencies = (
+				1146412327788D9600754E36 /* FirebaseAuth */,
+				1146412527788D9600754E36 /* FirebaseFirestore */,
+				1146412727788D9600754E36 /* FirebaseStorage */,
+			);
 			productName = "Medical Equipment Donation";
 			productReference = 118B22152777908F00B54273 /* Medical Equipment Donation.app */;
 			productType = "com.apple.product-type.application";
@@ -109,8 +155,13 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
+				fr,
 			);
 			mainGroup = 118B220C2777908F00B54273;
+			packageReferences = (
+				1146412227788D9600754E36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 118B22162777908F00B54273 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +178,7 @@
 			files = (
 				118B22252777909200B54273 /* LaunchScreen.storyboard in Resources */,
 				118B22222777909200B54273 /* Assets.xcassets in Resources */,
+				1146412127788CEF00754E36 /* GoogleService-Info.plist in Resources */,
 				118B22202777908F00B54273 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,8 +190,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				118B221D2777908F00B54273 /* ViewController.swift in Sources */,
+				1146413427799E6500754E36 /* LoginViewController.swift in Sources */,
+				1146412E27799B1B00754E36 /* Post Medical Equipment.swift in Sources */,
+				1146412A2779960900754E36 /* ImageView.swift in Sources */,
 				118B22192777908F00B54273 /* AppDelegate.swift in Sources */,
+				1146413227799DB700754E36 /* RegisterViewController.swift in Sources */,
+				1146412C2779982700754E36 /* User.swift in Sources */,
 				118B221B2777908F00B54273 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +207,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				118B221F2777908F00B54273 /* Base */,
+				1146411C27788BC700754E36 /* ar */,
+				1146411E27788C0300754E36 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -159,6 +217,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				118B22242777909200B54273 /* Base */,
+				1146411D27788BC700754E36 /* ar */,
+				1146411F27788C0300754E36 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -170,6 +230,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -231,6 +292,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -358,6 +420,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1146412227788D9600754E36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1146412327788D9600754E36 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1146412227788D9600754E36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		1146412527788D9600754E36 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1146412227788D9600754E36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		1146412727788D9600754E36 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1146412227788D9600754E36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 118B220D2777908F00B54273 /* Project object */;
 }

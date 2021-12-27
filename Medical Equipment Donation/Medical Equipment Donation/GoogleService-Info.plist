@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>131789419656-leehqh44sevurqi3og0oobb1esjt5etn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.131789419656-leehqh44sevurqi3og0oobb1esjt5etn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAqWFDVLfK0pr8EGv7jTyjYYJlIfoy4E38</string>
+	<key>GCM_SENDER_ID</key>
+	<string>131789419656</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bushra.Medical-Equipment-Donation</string>
+	<key>PROJECT_ID</key>
+	<string>medicalequipmentdonation-c1ee6</string>
+	<key>STORAGE_BUCKET</key>
+	<string>medicalequipmentdonation-c1ee6.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:131789419656:ios:76db24bb3627ac2f17db3d</string>
+</dict>
+</plist>
