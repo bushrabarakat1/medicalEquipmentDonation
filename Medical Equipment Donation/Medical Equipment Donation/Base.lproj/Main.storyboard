@@ -163,12 +163,15 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJc-i4-dtz">
-                                <rect key="frame" x="169" y="817" width="78" height="35"/>
+                                <rect key="frame" x="169" y="754" width="78" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Register"/>
+                                <connections>
+                                    <action selector="handelRegisterButton:" destination="MJG-BV-Eam" eventType="touchUpInside" id="CWg-Hq-WCn"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jJB-bF-aeW">
                                 <rect key="frame" x="20" y="696" width="374" height="32"/>
@@ -178,20 +181,28 @@
                                     <segment title="Register as benficiaries"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2g-il-yMO">
+                                <rect key="frame" x="169" y="810" width="78" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eOd-Nw-ZTF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="2Ue-h2-X9m"/>
                     <connections>
-                        <outlet property="userBirthDay" destination="wm0-Zn-Ntb" id="POd-XX-oDm"/>
-                        <outlet property="userConfirmPassword" destination="uuW-0Q-mRH" id="e0c-me-F6S"/>
-                        <outlet property="userCountry" destination="3gb-1k-3Ry" id="xUT-gL-5Am"/>
-                        <outlet property="userEmail" destination="pOj-SH-R0a" id="GfF-ti-GSH"/>
+                        <outlet property="userBirthDayTextField" destination="wm0-Zn-Ntb" id="8lk-wS-FXa"/>
+                        <outlet property="userConfirmPasswordTextField" destination="uuW-0Q-mRH" id="PEE-DK-m5y"/>
+                        <outlet property="userCountryTextField" destination="3gb-1k-3Ry" id="fAi-KO-TJ2"/>
+                        <outlet property="userEmailTextFiled" destination="pOj-SH-R0a" id="KiG-8F-ERi"/>
                         <outlet property="userGenderTextField" destination="ajP-Jl-IjY" id="X22-4s-6Xh"/>
                         <outlet property="userImageView" destination="tZW-7r-JGx" id="gnC-0n-isF"/>
                         <outlet property="userNameTextField" destination="6O3-rj-8N1" id="ks6-d2-Vtd"/>
-                        <outlet property="userPassword" destination="uWJ-Bt-PhU" id="Fgr-Ds-MUm"/>
+                        <outlet property="userPasswordTextField" destination="uWJ-Bt-PhU" id="0wI-hg-7cL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VBg-Jo-gQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -201,7 +212,7 @@
         <!--Medical Equipment-->
         <scene sceneID="oDQ-uI-gw6">
             <objects>
-                <viewController id="tHh-Rd-Lnh" sceneMemberID="viewController">
+                <viewController id="tHh-Rd-Lnh" customClass="HomeMedicalEquipment" customModule="Medical_Equipment_Donation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gyh-JS-Mtf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -275,7 +286,7 @@
                                 <rect key="frame" x="39" y="463" width="328" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -379,7 +390,7 @@
                                 <rect key="frame" x="35" y="443" width="328" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -488,12 +499,30 @@
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                                <connections>
+                                    <action selector="handleLoginButton:" destination="5U7-sv-7wb" eventType="touchUpInside" id="Ryp-C3-p3C"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0x-U5-BhS">
+                                <rect key="frame" x="143" y="506" width="106" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Register"/>
+                                <connections>
+                                    <action selector="handelRegisterButton:" destination="MJG-BV-Eam" eventType="touchUpInside" id="5WS-YA-XHd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ckt-6W-UTO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="8LZ-C5-UHl"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="dOJ-AY-AUr" id="ufO-mA-fl7"/>
+                        <outlet property="passwordTextField" destination="bij-bk-4WW" id="dDl-GT-4JU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvy-VO-LzW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -502,7 +531,7 @@
         <!--Navigation Controller-->
         <scene sceneID="mfG-9e-d90">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ysw-ZQ-MPz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LandingNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ysw-ZQ-MPz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZAP-95-gIW">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -520,7 +549,7 @@
         <!--Item-->
         <scene sceneID="yc2-W9-pXw">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jep-XU-haY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jep-XU-haY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="fdh-3g-5pP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mzp-AW-DCc">

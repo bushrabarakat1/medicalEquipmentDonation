@@ -5,9 +5,9 @@
 //  Created by Bushra Barakat on 23/05/1443 AH.
 //
 
-import Foundation
+
 import UIKit
-import CloudKit
+import Firebase
 class RegisterViewController: UIViewController{
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
@@ -20,16 +20,76 @@ class RegisterViewController: UIViewController{
     }
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userGenderTextField: UITextField!
-    @IBOutlet weak var userBirthDay: UITextField!
-    @IBOutlet weak var userCountry: UITextField!
-    @IBOutlet weak var userEmail: UITextField!
-    @IBOutlet weak var userPassword: UITextField!
-    @IBOutlet weak var userConfirmPassword: UITextField!
+    @IBOutlet weak var userBirthDayTextField: UITextField!
+    @IBOutlet weak var userCountryTextField: UITextField!
+    @IBOutlet weak var userEmailTextFiled: UITextField!
+    @IBOutlet weak var userPasswordTextField: UITextField!
+    @IBOutlet weak var userConfirmPasswordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerController.delegate = self
     }
+    
+    @IBAction func handelRegisterButton(_ sender: Any) {
+        if let image = userImageView.image,
+           let imageData = image.jpegData(compressionQuality: 0.75),
+           let userName = userNameTextField.text,
+           let gender = userGenderTextField.text,
+           let birthDay = userBirthDayTextField.text,
+           let country = userCountryTextField.text,
+           let email = userEmailTextFiled.text,
+           let password = userPasswordTextField.text,
+           let confirmPassword = userConfirmPasswordTextField.text,
+           password == confirmPassword{
+            Activity.showIndicator(parentView: self.view , childView: activityIndicator)
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                if let error = error {
+                    print ("Registration Storage Error", error.localizedDescription)
+                }
+                if let authResult = authResult {
+                    let storageRef = Storage.storage().reference(withPath: "users/\(authResult.user.uid)")
+                    let uploadMeta = StorageMetadata.init()
+                    uploadMeta.contentType = "image/jpeg"
+                    storageRef.putData(imageData, metadata: uploadMeta) { storageMeta, error in
+                        if let error = error {
+                            print("Registration Storage Error",error.localizedDescription)
+                        }
+                        storageRef.downloadURL { url, error in
+                            if let error = error {
+                                print("Registration Storage Download Url Error",error.localizedDescription)
+                            }
+                            if let url = url {
+                                print("URL",url.absoluteString)
+                                let db = Firestore.firestore()
+                                let userData: [String:String] = [
+                                    "id": authResult.user.uid,
+                                    "userName": userName,
+                                    "gender": gender,
+                                    "birthday": birthDay,
+                                    "country": country,
+                                    "email": email,
+                                    "imageUrl": url.absoluteString]
+                                db.collection("users").document(authResult.user.uid).setData(userData) { error in
+                                    if let error = error {
+                                        print("Registration Database error",error.localizedDescription)
+                                    }else {
+                                        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UINavigationController {
+                                            vc.modalPresentationStyle = .fullScreen
+                                            Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
+                                            self.present(vc, animated: true, completion: nil)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    
     
 }
 extension RegisterViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
