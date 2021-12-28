@@ -16,9 +16,12 @@
 		1146413227799DB700754E36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146413127799DB700754E36 /* RegisterViewController.swift */; };
 		1146413427799E6500754E36 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146413327799E6500754E36 /* LoginViewController.swift */; };
 		114641362779E51200754E36 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114641352779E51200754E36 /* Activity.swift */; };
-		114641382779E89A00754E36 /* HomeMedicalEquipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114641372779E89A00754E36 /* HomeMedicalEquipment.swift */; };
+		114641382779E89A00754E36 /* HomeMedicalEquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114641372779E89A00754E36 /* HomeMedicalEquipmentViewController.swift */; };
 		1146413A2779EFED00754E36 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114641392779EFED00754E36 /* LandingViewController.swift */; };
 		1146413C277A034A00754E36 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146413B277A034A00754E36 /* Post.swift */; };
+		11464147277AF42D00754E36 /* PostMedicalEquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11464146277AF42D00754E36 /* PostMedicalEquipmentViewController.swift */; };
+		11464149277AFCC100754E36 /* PostCellMedicalEquipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11464148277AFCC100754E36 /* PostCellMedicalEquipment.swift */; };
+		1146414B277B288200754E36 /* DetailsMedicalEquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146414A277B288200754E36 /* DetailsMedicalEquipmentViewController.swift */; };
 		118B22192777908F00B54273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B22182777908F00B54273 /* AppDelegate.swift */; };
 		118B221B2777908F00B54273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B221A2777908F00B54273 /* SceneDelegate.swift */; };
 		118B22202777908F00B54273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118B221E2777908F00B54273 /* Main.storyboard */; };
@@ -37,9 +40,12 @@
 		1146413127799DB700754E36 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1146413327799E6500754E36 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		114641352779E51200754E36 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
-		114641372779E89A00754E36 /* HomeMedicalEquipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMedicalEquipment.swift; sourceTree = "<group>"; };
+		114641372779E89A00754E36 /* HomeMedicalEquipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMedicalEquipmentViewController.swift; sourceTree = "<group>"; };
 		114641392779EFED00754E36 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		1146413B277A034A00754E36 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		11464146277AF42D00754E36 /* PostMedicalEquipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMedicalEquipmentViewController.swift; sourceTree = "<group>"; };
+		11464148277AFCC100754E36 /* PostCellMedicalEquipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellMedicalEquipment.swift; sourceTree = "<group>"; };
+		1146414A277B288200754E36 /* DetailsMedicalEquipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMedicalEquipmentViewController.swift; sourceTree = "<group>"; };
 		118B22152777908F00B54273 /* Medical Equipment Donation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medical Equipment Donation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		118B22182777908F00B54273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		118B221A2777908F00B54273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +84,9 @@
 				114641392779EFED00754E36 /* LandingViewController.swift */,
 				1146413127799DB700754E36 /* RegisterViewController.swift */,
 				1146413327799E6500754E36 /* LoginViewController.swift */,
-				114641372779E89A00754E36 /* HomeMedicalEquipment.swift */,
+				114641372779E89A00754E36 /* HomeMedicalEquipmentViewController.swift */,
+				11464146277AF42D00754E36 /* PostMedicalEquipmentViewController.swift */,
+				1146414A277B288200754E36 /* DetailsMedicalEquipmentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -90,6 +98,15 @@
 				114641352779E51200754E36 /* Activity.swift */,
 			);
 			path = Utill;
+			sourceTree = "<group>";
+		};
+		1146413F277A5AE300754E36 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				118B221E2777908F00B54273 /* Main.storyboard */,
+				11464148277AFCC100754E36 /* PostCellMedicalEquipment.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		118B220C2777908F00B54273 = {
@@ -113,8 +130,8 @@
 			children = (
 				1146413D277A4E5C00754E36 /* Utill */,
 				1146412F27799C7A00754E36 /* Model */,
+				1146413F277A5AE300754E36 /* View */,
 				1146413027799CA600754E36 /* Controller */,
-				118B221E2777908F00B54273 /* Main.storyboard */,
 				118B22212777909200B54273 /* Assets.xcassets */,
 				118B221A2777908F00B54273 /* SceneDelegate.swift */,
 				118B22182777908F00B54273 /* AppDelegate.swift */,
@@ -207,14 +224,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1146414B277B288200754E36 /* DetailsMedicalEquipmentViewController.swift in Sources */,
 				1146413427799E6500754E36 /* LoginViewController.swift in Sources */,
 				1146412A2779960900754E36 /* ImageView.swift in Sources */,
 				118B22192777908F00B54273 /* AppDelegate.swift in Sources */,
 				1146413227799DB700754E36 /* RegisterViewController.swift in Sources */,
-				114641382779E89A00754E36 /* HomeMedicalEquipment.swift in Sources */,
+				114641382779E89A00754E36 /* HomeMedicalEquipmentViewController.swift in Sources */,
 				1146412C2779982700754E36 /* User.swift in Sources */,
+				11464149277AFCC100754E36 /* PostCellMedicalEquipment.swift in Sources */,
 				114641362779E51200754E36 /* Activity.swift in Sources */,
 				1146413A2779EFED00754E36 /* LandingViewController.swift in Sources */,
+				11464147277AF42D00754E36 /* PostMedicalEquipmentViewController.swift in Sources */,
 				118B221B2777908F00B54273 /* SceneDelegate.swift in Sources */,
 				1146413C277A034A00754E36 /* Post.swift in Sources */,
 			);

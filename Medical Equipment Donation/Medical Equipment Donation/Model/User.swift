@@ -15,7 +15,7 @@ struct User{
     var birthDay = ""
     var country = ""
     var email = ""
-    var phoneNumber = 123
+    var phoneNumber = ""
     var type = ""
     
     init(dict:[String:Any]) {
@@ -26,7 +26,7 @@ struct User{
            let birthDay = dict["birthDay"] as? String,
            let country = dict["country"] as? String,
            let email = dict["mail"] as? String,
-           let phoneNumber = dict["phoneNumber"] as? Int,
+           let phoneNumber = dict["phoneNumber"] as? String,
            let type = dict["type"] as? String {
             self.id = id 
             self.imageUrl = imageUrl

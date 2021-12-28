@@ -8,5 +8,5 @@
 import Foundation
 import UIKit
 class LandingViewController: UIViewController{
-    
+   
 }

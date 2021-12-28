@@ -13,8 +13,9 @@ class RegisterViewController: UIViewController{
     var activityIndicator = UIActivityIndicatorView()
     @IBOutlet weak var userImageView: UIImageView!{
         didSet{
+            
             userImageView.isUserInteractionEnabled = true
-            let tabGesture = UIGestureRecognizer(target: self, action: #selector(selectimage))
+            let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectimage))
             userImageView.addGestureRecognizer(tabGesture)
         }
     }
