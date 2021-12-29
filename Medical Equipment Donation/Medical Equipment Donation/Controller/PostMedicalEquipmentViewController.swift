@@ -47,12 +47,7 @@ class PostMedicalEquipmentViewController: UIViewController{
         }else {
             actionButton.setTitle("Add Post", for: .normal)
         }
-        // Do any additional setup after loading the view.
     }
-    
-    
-    
-    
     
     
     

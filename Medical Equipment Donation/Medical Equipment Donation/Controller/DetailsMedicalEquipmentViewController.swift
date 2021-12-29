@@ -30,8 +30,6 @@ class DetailsMedicalEquipmentViewController: UIViewController{
             userNameLabel.text = selectedPost.user.userName
             userEmailLabel.text = selectedPost.user.email
             userPhoneNumberLabel.text = selectedPost.user.phoneNumber
-        }
-        
-        // Do any additional setup after loading the view.
-}
+      }
+   }
 }

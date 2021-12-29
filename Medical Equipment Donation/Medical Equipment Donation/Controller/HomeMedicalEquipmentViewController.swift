@@ -19,8 +19,6 @@ class HomeMedicalEquipmentViewController: UIViewController{
         didSet{
             postMedicalEquipmentTableView.delegate = self
             postMedicalEquipmentTableView.dataSource = self
-//            postMedicalEquipmentTableView.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: "PostCell")
-        
         }
     }
     override func viewDidLoad() {
@@ -119,10 +117,9 @@ class HomeMedicalEquipmentViewController: UIViewController{
                 vc.selectedPost = selectedPost
                 vc.selectedPostImage = selectedPostImage
                 vc.selectedUserImage = selectedUserImage
-            }
-        }
-     
+      }
     }
+  }
 }
 
 
