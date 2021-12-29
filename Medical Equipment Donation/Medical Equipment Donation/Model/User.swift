@@ -10,27 +10,27 @@ import Foundation
 struct User{
     var id = ""
     var imageUrl = ""
-    var name = ""
+    var userName = ""
     var gender = ""
     var birthDay = ""
     var country = ""
     var email = ""
     var phoneNumber = ""
-    var type = ""
+    var type = false
     
     init(dict:[String:Any]) {
         if let id = dict["id"] as? String,
-           let imageUrl = dict["imagUrl"] as? String,
-           let name = dict["name"] as? String,
+           let imageUrl = dict["imageUrl"] as? String,
+           let userName = dict["userName"] as? String,
            let gender = dict["gender"] as? String,
            let birthDay = dict["birthDay"] as? String,
            let country = dict["country"] as? String,
-           let email = dict["mail"] as? String,
+           let email = dict["email"] as? String,
            let phoneNumber = dict["phoneNumber"] as? String,
-           let type = dict["type"] as? String {
+           let type = dict["type"] as? Bool {
             self.id = id 
             self.imageUrl = imageUrl
-            self.name = name
+            self.userName = userName
             self.gender = gender
             self.birthDay = birthDay
             self.country = country

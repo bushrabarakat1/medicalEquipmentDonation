@@ -11,8 +11,10 @@ import Firebase
 class PostMedicalEquipmentViewController: UIViewController{
     var selectedPost:Post?
     var selectedPostImage:UIImage?
+    var selectedUserImage:UIImage?
     
-    @IBOutlet weak var addMedicalEquipmentAction: UIButton!
+    
+    @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var postMedicalEquipmentImageView: UIImageView!{
         didSet {
             postMedicalEquipmentImageView.isUserInteractionEnabled = true
@@ -35,10 +37,15 @@ class PostMedicalEquipmentViewController: UIViewController{
             postMedicalEquipmentTitleTextField.text = selectedPost.title
             postMedicalEquipmentDescriptionTextField.text = selectedPost.description
             postMedicalEquipmentImageView.image = selectedImage
-            addMedicalEquipmentAction.setTitle("Update Post", for: .normal)
+            userNameLabel.text = selectedPost.user.userName
+            userEmailLabel.text = selectedPost.user.email
+            userPhoneNumberLabel.text = selectedPost.user.phoneNumber
+            userImageView.image = selectedUserImage
+            
+            actionButton.setTitle("Update Post", for: .normal)
             
         }else {
-            addMedicalEquipmentAction.setTitle("Add Post", for: .normal)
+            actionButton.setTitle("Add Post", for: .normal)
         }
         // Do any additional setup after loading the view.
     }
@@ -49,7 +56,7 @@ class PostMedicalEquipmentViewController: UIViewController{
     
     
     
-    @IBAction func addMedicalEquipmentAction(_ sender: Any) {
+    @IBAction func buttonAction(_ sender: Any) {
         if let image = postMedicalEquipmentImageView.image,
            let imageData = image.jpegData(compressionQuality: 0.75),
            let title = postMedicalEquipmentTitleTextField.text,

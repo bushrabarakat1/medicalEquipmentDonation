@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Contacts
 class RegisterViewController: UIViewController{
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
@@ -24,6 +25,7 @@ class RegisterViewController: UIViewController{
     @IBOutlet weak var userBirthDayTextField: UITextField!
     @IBOutlet weak var userCountryTextField: UITextField!
     @IBOutlet weak var userEmailTextFiled: UITextField!
+    @IBOutlet weak var userPhoneNumberTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var userConfirmPasswordTextField: UITextField!
     
@@ -40,6 +42,7 @@ class RegisterViewController: UIViewController{
            let birthDay = userBirthDayTextField.text,
            let country = userCountryTextField.text,
            let email = userEmailTextFiled.text,
+           let phoneNumber = userPhoneNumberTextField.text,
            let password = userPasswordTextField.text,
            let confirmPassword = userConfirmPasswordTextField.text,
            password == confirmPassword{
@@ -49,6 +52,7 @@ class RegisterViewController: UIViewController{
                     print ("Registration Storage Error", error.localizedDescription)
                 }
                 if let authResult = authResult {
+                    
                     let storageRef = Storage.storage().reference(withPath: "users/\(authResult.user.uid)")
                     let uploadMeta = StorageMetadata.init()
                     uploadMeta.contentType = "image/jpeg"
@@ -63,14 +67,17 @@ class RegisterViewController: UIViewController{
                             if let url = url {
                                 print("URL",url.absoluteString)
                                 let db = Firestore.firestore()
-                                let userData: [String:String] = [
+                                let userData: [String:Any] = [
                                     "id": authResult.user.uid,
                                     "userName": userName,
                                     "gender": gender,
-                                    "birthday": birthDay,
+                                    "birthDay": birthDay,
                                     "country": country,
                                     "email": email,
-                                    "imageUrl": url.absoluteString]
+                                    "phoneNumber": phoneNumber,
+                                    "imageUrl": url.absoluteString,
+                                    "type": false
+                                ]
                                 db.collection("users").document(authResult.user.uid).setData(userData) { error in
                                     if let error = error {
                                         print("Registration Database error",error.localizedDescription)

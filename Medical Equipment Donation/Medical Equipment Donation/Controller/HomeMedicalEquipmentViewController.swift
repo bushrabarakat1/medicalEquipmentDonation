@@ -5,13 +5,15 @@
 //  Created by Bushra Barakat on 23/05/1443 AH.
 //
 
-import Foundation
+
 import UIKit
 import Firebase
 class HomeMedicalEquipmentViewController: UIViewController{
     var posts = [Post]()
     var selectedPost:Post?
     var selectedPostImage:UIImage?
+    var selectedUserImage:UIImage?
+
     
     @IBOutlet weak var postMedicalEquipmentTableView: UITableView!{
         didSet{
@@ -94,17 +96,29 @@ class HomeMedicalEquipmentViewController: UIViewController{
             }
         }
     }
+    @IBAction func logoutAction(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LandingNavigationController") as? UINavigationController {
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+        } catch  {
+            print("ERROR in signout",error.localizedDescription)
+        }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "toPostVC" {
                 let vc = segue.destination as! PostMedicalEquipmentViewController
                 vc.selectedPost = selectedPost
                 vc.selectedPostImage = selectedPostImage
-//            }else if identifier == "toDetailsVC"{
-            }else{
+                vc.selectedUserImage = selectedUserImage
+            }else if identifier == "toDetailsVC"{
                 let vc = segue.destination as! DetailsMedicalEquipmentViewController
                 vc.selectedPost = selectedPost
                 vc.selectedPostImage = selectedPostImage
+                vc.selectedUserImage = selectedUserImage
             }
         }
      
@@ -130,7 +144,10 @@ extension HomeMedicalEquipmentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! PostCellMedicalEquipment
         selectedPostImage = cell.postImageView.image
+        selectedUserImage = cell.userImageView.image
         selectedPost = posts[indexPath.row]
+        print("AUTH",Auth.auth().currentUser)
+        print("AUTH",posts[indexPath.row].user.id)
         if let currentUser = Auth.auth().currentUser,
            currentUser.uid == posts[indexPath.row].user.id{
             performSegue(withIdentifier: "toPostVC", sender: self)
