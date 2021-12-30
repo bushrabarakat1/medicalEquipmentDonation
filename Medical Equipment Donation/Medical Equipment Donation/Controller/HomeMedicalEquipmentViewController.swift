@@ -13,7 +13,7 @@ class HomeMedicalEquipmentViewController: UIViewController{
     var selectedPost:Post?
     var selectedPostImage:UIImage?
     var selectedUserImage:UIImage?
-
+    
     
     @IBOutlet weak var postMedicalEquipmentTableView: UITableView!{
         didSet{
@@ -52,14 +52,14 @@ class HomeMedicalEquipmentViewController: UIViewController{
                                     self.postMedicalEquipmentTableView.beginUpdates()
                                     if snapshot.documentChanges.count != 1 {
                                         self.posts.append(post)
-                                      
+                                        
                                         self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row:self.posts.count - 1,section: 0)],with: .automatic)
                                     }else {
                                         self.posts.insert(post,at:0)
-                                      
+                                        
                                         self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
                                     }
-                                  
+                                    
                                     self.postMedicalEquipmentTableView.endUpdates()
                                     
                                     
@@ -72,21 +72,21 @@ class HomeMedicalEquipmentViewController: UIViewController{
                            let updateIndex = self.posts.firstIndex(where: {$0.id == postId}){
                             let newPost = Post(dict:postData, id: postId, user: currentPost.user)
                             self.posts[updateIndex] = newPost
-                         
-                                self.postMedicalEquipmentTableView.beginUpdates()
-                                self.postMedicalEquipmentTableView.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
-                                self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
-                                self.postMedicalEquipmentTableView.endUpdates()
+                            
+                            self.postMedicalEquipmentTableView.beginUpdates()
+                            self.postMedicalEquipmentTableView.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
+                            self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
+                            self.postMedicalEquipmentTableView.endUpdates()
                             
                         }
                     case .removed:
                         let postId = diff.document.documentID
                         if let deleteIndex = self.posts.firstIndex(where: {$0.id == postId}){
                             self.posts.remove(at: deleteIndex)
-                          
-                                self.postMedicalEquipmentTableView.beginUpdates()
-                                self.postMedicalEquipmentTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
-                                self.postMedicalEquipmentTableView.endUpdates()
+                            
+                            self.postMedicalEquipmentTableView.beginUpdates()
+                            self.postMedicalEquipmentTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
+                            self.postMedicalEquipmentTableView.endUpdates()
                             
                         }
                     }
@@ -117,9 +117,9 @@ class HomeMedicalEquipmentViewController: UIViewController{
                 vc.selectedPost = selectedPost
                 vc.selectedPostImage = selectedPostImage
                 vc.selectedUserImage = selectedUserImage
-      }
+            }
+        }
     }
-  }
 }
 
 
@@ -138,12 +138,13 @@ extension HomeMedicalEquipmentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! PostCellMedicalEquipment
         selectedPostImage = cell.postImageView.image
         selectedUserImage = cell.userImageView.image
         selectedPost = posts[indexPath.row]
-        print("AUTH",Auth.auth().currentUser)
+        //        print("AUTH",Auth.auth().currentUser)
         print("AUTH",posts[indexPath.row].user.id)
         if let currentUser = Auth.auth().currentUser,
            currentUser.uid == posts[indexPath.row].user.id{
@@ -152,5 +153,11 @@ extension HomeMedicalEquipmentViewController: UITableViewDelegate {
             performSegue(withIdentifier: "toDetailsVC", sender: self)
         }
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
 }
+          
+
 

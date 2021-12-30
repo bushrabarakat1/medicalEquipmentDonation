@@ -43,12 +43,39 @@ class PostMedicalEquipmentViewController: UIViewController{
             userImageView.image = selectedUserImage
             
             actionButton.setTitle("Update Post", for: .normal)
+            let deleteBarButton = UIBarButtonItem(image: UIImage(systemName: "trash.fill"), style: .plain, target: self, action: #selector(handleDelete))
+            self.navigationItem.rightBarButtonItem = deleteBarButton
             
         }else {
             actionButton.setTitle("Add Post", for: .normal)
+            self.navigationItem.rightBarButtonItem = nil
         }
     }
     
+    @objc func handleDelete (_ sender: UIBarButtonItem) {
+        let ref = Firestore.firestore().collection("posts")
+        if let selectedPost = selectedPost {
+            Activity.showIndicator(parentView: self.view, childView: activityIndicator)
+            ref.document(selectedPost.id).delete { error in
+                if let error = error {
+                    print("Error in db delete",error)
+                }else {
+                    // Create a reference to the file to delete
+                    let storageRef = Storage.storage().reference(withPath: "posts/\(selectedPost.user.id)/\(selectedPost.id)")
+                    // Delete the file
+                    storageRef.delete { error in
+                        if let error = error {
+                            print("Error in storage delete",error)
+                        } else {
+                            self.activityIndicator.stopAnimating()
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
     
     
     @IBAction func buttonAction(_ sender: Any) {
