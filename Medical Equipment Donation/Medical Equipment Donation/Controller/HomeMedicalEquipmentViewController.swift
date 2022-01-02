@@ -9,10 +9,16 @@
 import UIKit
 import Firebase
 class HomeMedicalEquipmentViewController: UIViewController{
+    
+    
     var posts = [Post]()
     var selectedPost:Post?
     var selectedPostImage:UIImage?
     var selectedUserImage:UIImage?
+   
+    
+    
+
     
     
     @IBOutlet weak var postMedicalEquipmentTableView: UITableView!{
@@ -20,6 +26,7 @@ class HomeMedicalEquipmentViewController: UIViewController{
             postMedicalEquipmentTableView.delegate = self
             postMedicalEquipmentTableView.dataSource = self
         }
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +101,8 @@ class HomeMedicalEquipmentViewController: UIViewController{
             }
         }
     }
+    
+
     @IBAction func logoutAction(_ sender: Any) {
         do {
             try Auth.auth().signOut()

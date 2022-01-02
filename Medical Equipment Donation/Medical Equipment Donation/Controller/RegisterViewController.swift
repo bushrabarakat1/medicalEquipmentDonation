@@ -20,6 +20,16 @@ class RegisterViewController: UIViewController{
             userImageView.addGestureRecognizer(tabGesture)
         }
     }
+    
+    @IBOutlet weak var userTypeButton: UIButton!{
+        didSet{
+            userTypeButton.layer.borderWidth = 0.5
+            userTypeButton.layer.borderColor = UIColor.systemBlue.cgColor
+            userTypeButton.layer.cornerRadius = userTypeButton.frame.size.width / 2.0
+            userTypeButton.backgroundColor = .systemBackground
+        }
+    }
+    
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userGenderTextField: UITextField!
     @IBOutlet weak var userBirthDayTextField: UITextField!
@@ -82,7 +92,7 @@ class RegisterViewController: UIViewController{
                                     if let error = error {
                                         print("Registration Database error",error.localizedDescription)
                                     }else {
-                                        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UINavigationController {
+                                        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabbar") as? UIViewController {
                                             vc.modalPresentationStyle = .fullScreen
                                             Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                                             self.present(vc, animated: true, completion: nil)
