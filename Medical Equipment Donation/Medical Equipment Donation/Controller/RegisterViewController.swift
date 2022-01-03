@@ -38,6 +38,22 @@ class RegisterViewController: UIViewController{
     @IBOutlet weak var userPhoneNumberTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var userConfirmPasswordTextField: UITextField!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var birthDayLabel: UILabel!
+    
+    @IBOutlet weak var countryLabel: UILabel!
+    
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    
+    @IBOutlet weak var passwordLabel: UILabel!
+    
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var confirmPasswordLabel: UILabel!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +62,7 @@ class RegisterViewController: UIViewController{
     
     @IBAction func handelRegisterButton(_ sender: Any) {
         if let image = userImageView.image,
-           let imageData = image.jpegData(compressionQuality: 0.75),
+           let imageData = image.jpegData(compressionQuality: 0.25),
            let userName = userNameTextField.text,
            let gender = userGenderTextField.text,
            let birthDay = userBirthDayTextField.text,
@@ -92,7 +108,7 @@ class RegisterViewController: UIViewController{
                                     if let error = error {
                                         print("Registration Database error",error.localizedDescription)
                                     }else {
-                                        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabbar") as? UIViewController {
+                                        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UINavigationController {
                                             vc.modalPresentationStyle = .fullScreen
                                             Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                                             self.present(vc, animated: true, completion: nil)

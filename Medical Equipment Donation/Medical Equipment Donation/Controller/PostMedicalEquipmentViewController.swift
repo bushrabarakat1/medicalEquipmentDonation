@@ -76,6 +76,7 @@ class PostMedicalEquipmentViewController: UIViewController{
             }
         }
     }
+
     
     
     @IBAction func buttonAction(_ sender: Any) {

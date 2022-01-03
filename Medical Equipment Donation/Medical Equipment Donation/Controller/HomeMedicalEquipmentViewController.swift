@@ -15,12 +15,6 @@ class HomeMedicalEquipmentViewController: UIViewController{
     var selectedPost:Post?
     var selectedPostImage:UIImage?
     var selectedUserImage:UIImage?
-   
-    
-    
-
-    
-    
     @IBOutlet weak var postMedicalEquipmentTableView: UITableView!{
         didSet{
             postMedicalEquipmentTableView.delegate = self
@@ -102,6 +96,7 @@ class HomeMedicalEquipmentViewController: UIViewController{
         }
     }
     
+    
 
     @IBAction func logoutAction(_ sender: Any) {
         do {
@@ -114,6 +109,7 @@ class HomeMedicalEquipmentViewController: UIViewController{
             print("ERROR in signout",error.localizedDescription)
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "toPostVC" {
@@ -163,9 +159,6 @@ extension HomeMedicalEquipmentViewController: UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
 }
           
 
