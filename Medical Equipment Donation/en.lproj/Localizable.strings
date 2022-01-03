@@ -13,17 +13,15 @@
 "BirthDay" = "BirthDay";
 "Country" = "Country";
 "Email" = "Email";
-"PhonNumber" = "PhonNumber";
+"PhonNumber" = "Phon Number";
 "Password" = "Password";
 "ConfirmPassword" = "ConfirmPassword";
-
 "Logout" = "Logout";
-"MedicalEquipment" = "MedicalEquipment";
+"MedicalEquipment" = "Medical Equipment";
 "Title" = "Title";
 "Description" = "Description";
 "Contact" = "Contact";
-
-"add" = "add";
-"Edite" = "Edite";
+"Update Post" = "Update Post";
+"Add Post" = "Add Post";
 
 

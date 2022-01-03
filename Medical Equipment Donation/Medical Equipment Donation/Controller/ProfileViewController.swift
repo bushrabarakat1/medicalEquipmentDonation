@@ -20,11 +20,31 @@ class ProfileViewContrller: UIViewController{
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userPhoneNumberLabel: UILabel!
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var birthdayLabel: UILabel!
-    @IBOutlet weak var countryLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!{
+        didSet{
+            nameLabel.text = "Name".localized
+        }
+    }
+    @IBOutlet weak var birthdayLabel: UILabel!{
+        didSet{
+            birthdayLabel.text = "BirthDay".localized
+        }
+    }
+    @IBOutlet weak var countryLabel: UILabel!{
+        didSet{
+            countryLabel.text = "Country".localized
+        }
+    }
+    @IBOutlet weak var emailLabel: UILabel!{
+        didSet{
+            emailLabel.text = "Email".localized
+        }
+    }
+    @IBOutlet weak var phoneNumberLabel: UILabel!{
+        didSet{
+            phoneNumberLabel.text = "PhonNumber".localized
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

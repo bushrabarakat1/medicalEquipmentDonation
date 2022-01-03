@@ -16,12 +16,10 @@
 "PhonNumber" = "رقم الهاتف";
 "Password" = "الرقم السري";
 "ConfirmPassword" = "تاكيد الرقم السري";
-
 "Logout" = "خروج";
 "MedicalEquipment" = "المعدات الطبية";
 "Title" = "الموضوع";
 "Description" = "الوصف";
 "Contact" = "تواصل";
-
-"add" = "اضافة";
-"Edite" = "تحرير";
+"Update Post" = "تعديل";
+"Add Post" = "اضافة";

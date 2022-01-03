@@ -18,9 +18,21 @@ class DetailsMedicalEquipmentViewController: UIViewController{
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userPhoneNumberLabel: UILabel!
-    @IBOutlet weak var contactLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var phonNumberLabel: UILabel!
+    @IBOutlet weak var contactLabel: UILabel!{
+        didSet{
+            contactLabel.text = "Contact".localized
+        }
+    }
+    @IBOutlet weak var emailLabel: UILabel!{
+        didSet{
+            emailLabel.text = "Email".localized
+        }
+    }
+    @IBOutlet weak var phonNumberLabel: UILabel!{
+        didSet{
+            phonNumberLabel.text = "PhonNumber".localized
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

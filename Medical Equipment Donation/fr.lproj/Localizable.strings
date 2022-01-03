@@ -16,13 +16,11 @@
 "PhonNumber" = "Numéro de téléphone";
 "Password" = "Mot de passe";
 "ConfirmPassword" = "Confirmez le mot de passe";
-
 "Logout" = "Se déconnecter";
 "MedicalEquipment" = "Équipement médical";
 "Title" = "Titre";
 "Description" = "La description";
 "Contact" = "Contact";
-
-"add" = "ajouter";
-"Edite" = "Éditer";
+"Update Post" = "Mettre à jour le message";
+"Add Post" = "Ajouter une publication";
 

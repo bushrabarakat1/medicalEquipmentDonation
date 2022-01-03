@@ -13,11 +13,31 @@ class PostMedicalEquipmentViewController: UIViewController{
     var selectedPostImage:UIImage?
     var selectedUserImage:UIImage?
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var contactLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!{
+        didSet{
+            titleLabel.text = "Title".localized
+        }
+    }
+    @IBOutlet weak var descriptionLabel: UILabel!{
+        didSet{
+            descriptionLabel.text = "Description".localized
+        }
+    }
+    @IBOutlet weak var contactLabel: UILabel!{
+        didSet{
+            contactLabel.text = "Contact".localized
+        }
+    }
+    @IBOutlet weak var emailLabel: UILabel!{
+        didSet{
+            emailLabel.text = "Email".localized
+        }
+    }
+    @IBOutlet weak var phoneNumberLabel: UILabel!{
+        didSet{
+            phoneNumberLabel.text = "PhonNumber".localized
+        }
+    }
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var postMedicalEquipmentImageView: UIImageView!{
         didSet {
@@ -46,12 +66,12 @@ class PostMedicalEquipmentViewController: UIViewController{
             userPhoneNumberLabel.text = selectedPost.user.phoneNumber
             userImageView.image = selectedUserImage
             
-            actionButton.setTitle("Update Post", for: .normal)
+            actionButton.setTitle("Update Post".localized, for: .normal)
             let deleteBarButton = UIBarButtonItem(image: UIImage(systemName: "trash.fill"), style: .plain, target: self, action: #selector(handleDelete))
             self.navigationItem.rightBarButtonItem = deleteBarButton
             
         }else {
-            actionButton.setTitle("Add Post", for: .normal)
+            actionButton.setTitle("Add Post".localized, for: .normal)
             self.navigationItem.rightBarButtonItem = nil
         }
     }
@@ -85,7 +105,7 @@ class PostMedicalEquipmentViewController: UIViewController{
     
     @IBAction func buttonAction(_ sender: Any) {
         if let image = postMedicalEquipmentImageView.image,
-           let imageData = image.jpegData(compressionQuality: 0.75),
+           let imageData = image.jpegData(compressionQuality: 0.25),
            let title = postMedicalEquipmentTitleTextField.text,
            let description = postMedicalEquipmentDescriptionTextField.text,
            let currentUser = Auth.auth().currentUser {
