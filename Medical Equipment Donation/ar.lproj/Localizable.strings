@@ -5,3 +5,23 @@
   Created by Bushra Barakat on 30/05/1443 AH.
   
 */
+"HELLO" = "مـرحــبــا";
+"Register" = "تسجيل جديد";
+"Login" = "تسجيل دخول";
+"Name" = "الاسم";
+"Gender" = "الجنس";
+"BirthDay" = "تاريخ الميلاد";
+"Country" = "المدينة";
+"Email" = "الايميل";
+"PhonNumber" = "رقم الهاتف";
+"Password" = "الرقم السري";
+"ConfirmPassword" = "تاكيد الرقم السري";
+
+"Logout" = "خروج";
+"MedicalEquipment" = "المعدات الطبية";
+"Title" = "الموضوع";
+"Description" = "الوصف";
+"Contact" = "تواصل";
+
+"add" = "اضافة";
+"Edite" = "تحرير";

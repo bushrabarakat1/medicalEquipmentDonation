@@ -5,5 +5,24 @@
   Created by Bushra Barakat on 30/05/1443 AH.
   
 */
-"Register"
-"Login"
+"HELLO" = "BONJOUR";
+"Register" = "S'inscrire";
+"Login" = "Connexion";
+"Name" = "Nom";
+"Gender" = "Le genre";
+"BirthDay" = "Date d'anniversaire";
+"Country" = "Pays";
+"Email" = "E-mail";
+"PhonNumber" = "Numéro de téléphone";
+"Password" = "Mot de passe";
+"ConfirmPassword" = "Confirmez le mot de passe";
+
+"Logout" = "Se déconnecter";
+"MedicalEquipment" = "Équipement médical";
+"Title" = "Titre";
+"Description" = "La description";
+"Contact" = "Contact";
+
+"add" = "ajouter";
+"Edite" = "Éditer";
+

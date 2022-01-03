@@ -9,27 +9,27 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Landing View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Medical_Equipment_Donation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LandingViewController" customModule="Medical_Equipment_Donation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tpe-Vv-GjA">
-                                <rect key="frame" x="20" y="242" width="171" height="128"/>
+                                <rect key="frame" x="20" y="200" width="171" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="H E L L O" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax6-oY-F28">
-                                <rect key="frame" x="223" y="306" width="134" height="64"/>
+                                <rect key="frame" x="213" y="264" width="134" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="di6-kN-Qv8">
-                                <rect key="frame" x="20" y="477" width="374" height="58"/>
+                                <rect key="frame" x="20" y="404" width="374" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAq-Rx-8QQ">
-                                <rect key="frame" x="20" y="593" width="374" height="58"/>
+                                <rect key="frame" x="20" y="498" width="374" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,13 +50,33 @@
                                     <segue destination="5U7-sv-7wb" kind="show" id="NsC-Zh-Jom"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="GwC-6E-d5d">
+                                <rect key="frame" x="26" y="661" width="362" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="AR"/>
+                                    <segment title="EN"/>
+                                    <segment title="FR"/>
+                                </segments>
+                                <connections>
+                                    <action selector="languageChangeSegmented:" destination="W3J-GB-fy3" eventType="valueChanged" id="AUW-N8-Anb"/>
+                                    <action selector="langugeSegmented:" destination="BYZ-38-t0r" eventType="valueChanged" id="9v8-Qf-f6e"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="BQE-eW-rqy"/>
+                    <connections>
+                        <outlet property="helloLabel" destination="ax6-oY-F28" id="DV4-cr-ygp"/>
+                        <outlet property="langugeChangeSegmented" destination="GwC-6E-d5d" id="PVZ-ZY-uWH"/>
+                        <outlet property="loginLabel" destination="gAq-Rx-8QQ" id="zU3-pa-EEA"/>
+                        <outlet property="registerLabel" destination="di6-kN-Qv8" id="HMy-Iz-HoR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="W3J-GB-fy3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="117.85714285714285"/>
         </scene>
@@ -376,7 +396,9 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="logoutButton" destination="Iwx-GP-q6A" id="F2B-lt-S51"/>
                         <outlet property="postMedicalEquipmentTableView" destination="uih-dM-8lY" id="atQ-uc-gW0"/>
+                        <outlet property="titleLabel" destination="yjt-WD-Iyf" id="Vpb-o0-zj9"/>
                         <segue destination="DYu-eb-obn" kind="show" identifier="toPostVC" id="jyZ-rW-wyC"/>
                         <segue destination="at5-op-j1i" kind="show" identifier="toDetailsVC" id="uW2-As-wZQ"/>
                     </connections>
@@ -463,6 +485,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="4IT-dY-9OW"/>
                     <connections>
+                        <outlet property="contactLabel" destination="fG0-z1-QCL" id="9sx-Oe-Loa"/>
+                        <outlet property="emailLabel" destination="O2P-DS-liv" id="zX1-Zs-Nrn"/>
+                        <outlet property="phonNumberLabel" destination="v0N-Xx-bkh" id="cuf-aB-id2"/>
                         <outlet property="postDescriptionMedicalEquipmentLabel" destination="ahu-W5-pTf" id="JWV-3V-axQ"/>
                         <outlet property="postMedicalEquipmentImageView" destination="MYl-ad-jSC" id="gLE-mP-QMc"/>
                         <outlet property="postTitleMedicalEquipmentLable" destination="dia-RI-Yd3" id="uAu-KF-aiX"/>
@@ -686,9 +711,14 @@
                     <navigationItem key="navigationItem" id="rBm-ar-xQM"/>
                     <connections>
                         <outlet property="actionButton" destination="SIq-7m-FHe" id="F1b-x8-nsQ"/>
+                        <outlet property="contactLabel" destination="JWD-P8-scG" id="7Wt-0T-9lY"/>
+                        <outlet property="descriptionLabel" destination="cc6-cj-UXl" id="qsO-Rl-ypI"/>
+                        <outlet property="emailLabel" destination="51n-pC-ab6" id="JBZ-TS-DU1"/>
+                        <outlet property="phoneNumberLabel" destination="Ahe-0r-lov" id="52v-vP-a8E"/>
                         <outlet property="postMedicalEquipmentDescriptionTextField" destination="ekv-nY-NoM" id="nik-4t-9FI"/>
                         <outlet property="postMedicalEquipmentImageView" destination="417-IW-QlT" id="Pp2-AB-E62"/>
                         <outlet property="postMedicalEquipmentTitleTextField" destination="4vJ-3d-m1K" id="IG2-o7-fs8"/>
+                        <outlet property="titleLabel" destination="QK6-LN-byl" id="djD-Ih-b9l"/>
                         <outlet property="userEmailLabel" destination="ttM-BU-lIE" id="7wb-5R-Ivr"/>
                         <outlet property="userImageView" destination="FZT-Ve-tSa" id="Feq-gx-ydY"/>
                         <outlet property="userNameLabel" destination="PCX-v4-I1l" id="EgJ-0M-Fdr"/>
@@ -910,6 +940,11 @@
                     <navigationItem key="navigationItem" id="IVI-tF-vaL"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="birthdayLabel" destination="OV0-zn-kF4" id="WfH-d7-pyr"/>
+                        <outlet property="countryLabel" destination="fvP-oQ-ma2" id="P6o-mm-qqy"/>
+                        <outlet property="emailLabel" destination="Bht-D9-moy" id="6qL-Nq-dF9"/>
+                        <outlet property="nameLabel" destination="Qng-uR-5yN" id="T3K-A8-xc5"/>
+                        <outlet property="phoneNumberLabel" destination="OGw-Qq-QGM" id="Fa3-WD-znA"/>
                         <outlet property="userBirthDayLabel" destination="mI7-xX-fQ9" id="jjW-ve-w4s"/>
                         <outlet property="userCountryLabel" destination="K4F-Yt-Ojg" id="gWK-9R-rrt"/>
                         <outlet property="userEmailLabel" destination="JO4-DB-chU" id="tsW-hA-5St"/>

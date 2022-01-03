@@ -10,6 +10,16 @@ import UIKit
 import Firebase
 class HomeMedicalEquipmentViewController: UIViewController{
     
+    @IBOutlet weak var logoutButton: UIBarButtonItem!{
+        didSet{
+            logoutButton.title = "Logout".localized
+        }
+    }
+    @IBOutlet weak var titleLabel: UINavigationItem!{
+        didSet{
+            titleLabel.title = "MedicalEquipment".localized
+        }
+    }
     
     var posts = [Post]()
     var selectedPost:Post?

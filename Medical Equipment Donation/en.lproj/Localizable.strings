@@ -5,8 +5,25 @@
   Created by Bushra Barakat on 30/05/1443 AH.
   
 */
-"H E L L O" = "H E L L O";
+"HELLO" = "HELLO";
 "Register" = "Register";
 "Login" = "Login";
+"Name" = "Name";
+"Gender" = "Gender";
+"BirthDay" = "BirthDay";
+"Country" = "Country";
+"Email" = "Email";
+"PhonNumber" = "PhonNumber";
+"Password" = "Password";
+"ConfirmPassword" = "ConfirmPassword";
+
+"Logout" = "Logout";
+"MedicalEquipment" = "MedicalEquipment";
+"Title" = "Title";
+"Description" = "Description";
+"Contact" = "Contact";
+
+"add" = "add";
+"Edite" = "Edite";
 
 

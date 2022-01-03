@@ -38,19 +38,51 @@ class RegisterViewController: UIViewController{
     @IBOutlet weak var userPhoneNumberTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var userConfirmPasswordTextField: UITextField!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var genderLabel: UILabel!
-    @IBOutlet weak var birthDayLabel: UILabel!
-    
-    @IBOutlet weak var countryLabel: UILabel!
-    
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var phoneNumberLabel: UILabel!
-    
-    @IBOutlet weak var passwordLabel: UILabel!
-    
-    @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var confirmPasswordLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!{
+        didSet{
+            nameLabel.text = "Name".localized
+        }
+    }
+    @IBOutlet weak var genderLabel: UILabel!{
+        didSet{
+            genderLabel.text = "Gender".localized
+        }
+    }
+    @IBOutlet weak var birthDayLabel: UILabel!{
+        didSet{
+            birthDayLabel.text = "BirthDay".localized
+        }
+    }
+    @IBOutlet weak var countryLabel: UILabel!{
+        didSet{
+            countryLabel.text = "Country".localized
+        }
+    }
+    @IBOutlet weak var emailLabel: UILabel!{
+        didSet{
+            emailLabel.text = "Email".localized
+        }
+    }
+    @IBOutlet weak var phoneNumberLabel: UILabel!{
+        didSet{
+            phoneNumberLabel.text = "PhonNumber".localized
+        }
+    }
+    @IBOutlet weak var passwordLabel: UILabel!{
+        didSet{
+            passwordLabel.text = "Password".localized
+        }
+    }
+    @IBOutlet weak var registerButton: UIButton!{
+        didSet{
+            registerButton.setTitle("Register".localized, for: .normal)
+        }
+    }
+    @IBOutlet weak var confirmPasswordLabel: UILabel!{
+        didSet{
+            confirmPasswordLabel.text = "ConfirmPassword".localized
+        }
+    }
     
     
     

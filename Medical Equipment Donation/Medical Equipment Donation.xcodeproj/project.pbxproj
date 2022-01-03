@@ -23,6 +23,7 @@
 		11464149277AFCC100754E36 /* PostCellMedicalEquipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11464148277AFCC100754E36 /* PostCellMedicalEquipment.swift */; };
 		1146414B277B288200754E36 /* DetailsMedicalEquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146414A277B288200754E36 /* DetailsMedicalEquipmentViewController.swift */; };
 		114DC18E2782F0560025ACE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 114DC1902782F0560025ACE5 /* Localizable.strings */; };
+		114DC1942782F8D50025ACE5 /* BundleExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114DC1932782F8D50025ACE5 /* BundleExtention.swift */; };
 		115209AD277C7A4400A3D2E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115209AC277C7A4400A3D2E5 /* ProfileViewController.swift */; };
 		118B22192777908F00B54273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B22182777908F00B54273 /* AppDelegate.swift */; };
 		118B221B2777908F00B54273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B221A2777908F00B54273 /* SceneDelegate.swift */; };
@@ -51,6 +52,7 @@
 		114DC18F2782F0560025ACE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		114DC1912782F0580025ACE5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		114DC1922782F0590025ACE5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		114DC1932782F8D50025ACE5 /* BundleExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtention.swift; sourceTree = "<group>"; };
 		115209AC277C7A4400A3D2E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		118B22152777908F00B54273 /* Medical Equipment Donation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medical Equipment Donation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		118B22182777908F00B54273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		118B220C2777908F00B54273 = {
 			isa = PBXGroup;
 			children = (
+				114DC1932782F8D50025ACE5 /* BundleExtention.swift */,
 				114DC1902782F0560025ACE5 /* Localizable.strings */,
 				118B22172777908F00B54273 /* Medical Equipment Donation */,
 				118B22162777908F00B54273 /* Products */,
@@ -243,6 +246,7 @@
 				1146412C2779982700754E36 /* User.swift in Sources */,
 				11464149277AFCC100754E36 /* PostCellMedicalEquipment.swift in Sources */,
 				114641362779E51200754E36 /* Activity.swift in Sources */,
+				114DC1942782F8D50025ACE5 /* BundleExtention.swift in Sources */,
 				1146413A2779EFED00754E36 /* LandingViewController.swift in Sources */,
 				11464147277AF42D00754E36 /* PostMedicalEquipmentViewController.swift in Sources */,
 				118B221B2777908F00B54273 /* SceneDelegate.swift in Sources */,
