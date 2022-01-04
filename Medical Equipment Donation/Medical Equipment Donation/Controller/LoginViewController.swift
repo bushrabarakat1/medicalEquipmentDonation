@@ -13,7 +13,11 @@ class LoginViewController : UIViewController {
     var activityIndicator = UIActivityIndicatorView()
     
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!{
+        didSet{
+            passwordTextField.isSecureTextEntry = true
+        }
+    }
     @IBOutlet weak var emailLabel: UILabel!{
         didSet{
             emailLabel.text = "Email".localized

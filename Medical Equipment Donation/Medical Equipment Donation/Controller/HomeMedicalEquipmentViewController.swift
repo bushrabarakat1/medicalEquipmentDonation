@@ -9,22 +9,20 @@
 import UIKit
 import Firebase
 class HomeMedicalEquipmentViewController: UIViewController{
+  
+    var posts = [Post]()
+    var selectedPost:Post?
+    var selectedPostImage:UIImage?
+    var selectedUserImage:UIImage?
     
-    @IBOutlet weak var logoutButton: UIBarButtonItem!{
-        didSet{
-            logoutButton.title = "Logout".localized
-        }
-    }
+
     @IBOutlet weak var titleLabel: UINavigationItem!{
         didSet{
             titleLabel.title = "MedicalEquipment".localized
         }
     }
     
-    var posts = [Post]()
-    var selectedPost:Post?
-    var selectedPostImage:UIImage?
-    var selectedUserImage:UIImage?
+    
     @IBOutlet weak var postMedicalEquipmentTableView: UITableView!{
         didSet{
             postMedicalEquipmentTableView.delegate = self
@@ -106,8 +104,6 @@ class HomeMedicalEquipmentViewController: UIViewController{
         }
     }
     
-    
-
     @IBAction func logoutAction(_ sender: Any) {
         do {
             try Auth.auth().signOut()

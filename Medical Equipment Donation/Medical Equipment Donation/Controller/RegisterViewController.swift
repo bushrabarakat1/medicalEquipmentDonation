@@ -10,8 +10,26 @@ import UIKit
 import Firebase
 import Contacts
 class RegisterViewController: UIViewController{
+    
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
+    
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var userGenderTextField: UITextField!
+    @IBOutlet weak var userBirthDayTextField: UITextField!
+    @IBOutlet weak var userCountryTextField: UITextField!
+    @IBOutlet weak var userEmailTextFiled: UITextField!
+    @IBOutlet weak var userPhoneNumberTextField: UITextField!
+    @IBOutlet weak var userPasswordTextField: UITextField!{
+        didSet{
+            userPasswordTextField.isSecureTextEntry = true
+        }
+    }
+    @IBOutlet weak var userConfirmPasswordTextField: UITextField!{
+        didSet{
+            userConfirmPasswordTextField.isSecureTextEntry = true
+        }
+    }
     @IBOutlet weak var userImageView: UIImageView!{
         didSet{
             
@@ -20,7 +38,6 @@ class RegisterViewController: UIViewController{
             userImageView.addGestureRecognizer(tabGesture)
         }
     }
-    
     @IBOutlet weak var userTypeButton: UIButton!{
         didSet{
             userTypeButton.layer.borderWidth = 0.5
@@ -29,15 +46,6 @@ class RegisterViewController: UIViewController{
             userTypeButton.backgroundColor = .systemBackground
         }
     }
-    
-    @IBOutlet weak var userNameTextField: UITextField!
-    @IBOutlet weak var userGenderTextField: UITextField!
-    @IBOutlet weak var userBirthDayTextField: UITextField!
-    @IBOutlet weak var userCountryTextField: UITextField!
-    @IBOutlet weak var userEmailTextFiled: UITextField!
-    @IBOutlet weak var userPhoneNumberTextField: UITextField!
-    @IBOutlet weak var userPasswordTextField: UITextField!
-    @IBOutlet weak var userConfirmPasswordTextField: UITextField!
     @IBOutlet weak var nameLabel: UILabel!{
         didSet{
             nameLabel.text = "Name".localized
@@ -84,13 +92,26 @@ class RegisterViewController: UIViewController{
         }
     }
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerController.delegate = self
+        userImageView.layer.cornerRadius = 10
     }
+    
+    
+    var isbBenefactor = false
+    @IBAction func userTypeButton(_ sender: Any) {
+        if isbBenefactor {
+            userTypeButton.backgroundColor = .systemBlue
+            isbBenefactor = false
+        }else{
+            userTypeButton.backgroundColor = .systemBackground
+            isbBenefactor = true
+        }
+        
+    }
+    
+    
     
     @IBAction func handelRegisterButton(_ sender: Any) {
         if let image = userImageView.image,

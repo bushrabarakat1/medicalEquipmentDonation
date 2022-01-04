@@ -58,6 +58,14 @@ class LandingViewController: UIViewController{
             }
         }
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        registerLabel.layer.cornerRadius = 20
+        loginLabel.layer.cornerRadius = 20
+    
+        
+    }
+    
     @IBAction func langugeSegmented(_ sender:UISegmentedControl) {
         if let language = sender.titleForSegment(at: sender.selectedSegmentIndex)?.lowercased(){
             if language == "ar"{
@@ -74,9 +82,8 @@ class LandingViewController: UIViewController{
             }
         }
     }
-    
-    
-    }
+
+}
     extension String{
         var localized: String{
             return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self, comment: self)

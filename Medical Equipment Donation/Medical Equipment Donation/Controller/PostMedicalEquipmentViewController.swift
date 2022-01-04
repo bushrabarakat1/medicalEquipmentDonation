@@ -13,6 +13,14 @@ class PostMedicalEquipmentViewController: UIViewController{
     var selectedPostImage:UIImage?
     var selectedUserImage:UIImage?
     
+    @IBOutlet weak var postMedicalEquipmentTitleTextField: UITextField!
+    @IBOutlet weak var postMedicalEquipmentDescriptionTextField: UITextView!
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userEmailLabel: UILabel!
+    @IBOutlet weak var userPhoneNumberLabel: UILabel!
+    @IBOutlet weak var actionButton: UIButton!
+
     @IBOutlet weak var titleLabel: UILabel!{
         didSet{
             titleLabel.text = "Title".localized
@@ -38,7 +46,7 @@ class PostMedicalEquipmentViewController: UIViewController{
             phoneNumberLabel.text = "PhonNumber".localized
         }
     }
-    @IBOutlet weak var actionButton: UIButton!
+  
     @IBOutlet weak var postMedicalEquipmentImageView: UIImageView!{
         didSet {
             postMedicalEquipmentImageView.isUserInteractionEnabled = true
@@ -46,13 +54,7 @@ class PostMedicalEquipmentViewController: UIViewController{
             postMedicalEquipmentImageView.addGestureRecognizer(tapGesture)
         }
     }
-    @IBOutlet weak var postMedicalEquipmentTitleTextField: UITextField!
-    @IBOutlet weak var postMedicalEquipmentDescriptionTextField: UITextView!
-    @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var userEmailLabel: UILabel!
-    @IBOutlet weak var userPhoneNumberLabel: UILabel!
-    
+
     let activityIndicator = UIActivityIndicatorView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,6 +139,7 @@ class PostMedicalEquipmentViewController: UIViewController{
                                 "imageUrl":url.absoluteString,
                                 "createdAt":selectedPost.createdAt ?? FieldValue.serverTimestamp(),
                                 "updatedAt": FieldValue.serverTimestamp()
+                                
                             ]
                         }else {
                             postData = [
@@ -146,6 +149,7 @@ class PostMedicalEquipmentViewController: UIViewController{
                                 "imageUrl":url.absoluteString,
                                 "createdAt":FieldValue.serverTimestamp(),
                                 "updatedAt": FieldValue.serverTimestamp()
+                               
                             ]
                         }
                         ref.document(postId).setData(postData) { error in
