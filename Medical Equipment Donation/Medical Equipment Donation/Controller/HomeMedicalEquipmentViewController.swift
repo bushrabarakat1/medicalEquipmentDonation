@@ -15,24 +15,42 @@ class HomeMedicalEquipmentViewController: UIViewController{
     var selectedPostImage:UIImage?
     var selectedUserImage:UIImage?
     
-
+    @IBOutlet weak var plusButton: UIBarButtonItem!
+    
     @IBOutlet weak var titleLabel: UINavigationItem!{
         didSet{
             titleLabel.title = "MedicalEquipment".localized
         }
     }
     
-    
     @IBOutlet weak var postMedicalEquipmentTableView: UITableView!{
         didSet{
             postMedicalEquipmentTableView.delegate = self
             postMedicalEquipmentTableView.dataSource = self
+           
         }
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         getPosts()
+        
+//        for user type
+        if let currentUser = Auth.auth().currentUser{
+            let ref = Firestore.firestore()
+            ref.collection("users").document(currentUser.uid).getDocument { userSnapshot, error in
+                if let error = error {
+                    print("ERROR user Data",error.localizedDescription)
+                }
+                if let userSnapshot = userSnapshot,
+                   let userData = userSnapshot.data(){
+                    let user = User(dict:userData)
+                    if user.type == false{
+                        self.navigationItem.rightBarButtonItem = nil
+                    }
+                }
+            }
+        }
         // Do any additional setup after loading the view.
     }
     func getPosts() {
@@ -45,19 +63,22 @@ class HomeMedicalEquipmentViewController: UIViewController{
                 print("POST CANGES:",snapshot.documentChanges.count)
                 snapshot.documentChanges.forEach { diff in
                     let postData = diff.document.data()
+                    if let userId = postData["userId"] as? String {
+                        ref.collection("users").document(userId).getDocument { userSnapshot, error in
+                            if let error = error {
+                                print("ERROR user Data",error.localizedDescription)
+                                
+                            }
+                            if let userSnapshot = userSnapshot,
+                               let userData = userSnapshot.data(){
+                                let user = User(dict:userData)
+                                let post = Post(dict:postData,id:diff.document.documentID,user:user)
+
+                                
                     switch diff.type {
                     case .added :
                         
-                        if let userId = postData["userId"] as? String {
-                            ref.collection("users").document(userId).getDocument { userSnapshot, error in
-                                if let error = error {
-                                    print("ERROR user Data",error.localizedDescription)
-                                    
-                                }
-                                if let userSnapshot = userSnapshot,
-                                   let userData = userSnapshot.data(){
-                                    let user = User(dict:userData)
-                                    let post = Post(dict:postData,id:diff.document.documentID,user:user)
+                       
                                     self.postMedicalEquipmentTableView.beginUpdates()
                                     if snapshot.documentChanges.count != 1 {
                                         self.posts.append(post)
@@ -72,9 +93,7 @@ class HomeMedicalEquipmentViewController: UIViewController{
                                     self.postMedicalEquipmentTableView.endUpdates()
                                     
                                     
-                                }
-                            }
-                        }
+                        
                     case .modified:
                         let postId = diff.document.documentID
                         if let currentPost = self.posts.first(where: {$0.id == postId}),
@@ -97,6 +116,10 @@ class HomeMedicalEquipmentViewController: UIViewController{
                             self.postMedicalEquipmentTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
                             self.postMedicalEquipmentTableView.endUpdates()
                             
+                        }
+                                    
+                                }
+                            }
                         }
                     }
                 }

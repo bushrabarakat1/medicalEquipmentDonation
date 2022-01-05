@@ -17,6 +17,7 @@ struct User{
     var email = ""
     var phoneNumber = ""
     var type = false
+   
     
     init(dict:[String:Any]) {
         if let id = dict["id"] as? String,
@@ -27,7 +28,7 @@ struct User{
            let country = dict["country"] as? String,
            let email = dict["email"] as? String,
            let phoneNumber = dict["phoneNumber"] as? String,
-           let type = dict["type"] as? Bool {
+           let type = dict["type"] as? Bool{
             self.id = id 
             self.imageUrl = imageUrl
             self.userName = userName

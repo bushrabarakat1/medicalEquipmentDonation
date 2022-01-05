@@ -5,7 +5,7 @@
   Created by Bushra Barakat on 30/05/1443 AH.
   
 */
-"HELLO" = "BONJOUR";
+"H E L L O" = "BONJOUR";
 "Register" = "S'inscrire";
 "Login" = "Connexion";
 "Name" = "Nom";
@@ -16,6 +16,7 @@
 "PhonNumber" = "Numéro de téléphone";
 "Password" = "Mot de passe";
 "ConfirmPassword" = "Confirmez le mot de passe";
+"Register as Benefactor" = "S'inscrire comme bienfaiteur";
 "Logout" = "Se déconnecter";
 "MedicalEquipment" = "Équipement médical";
 "Title" = "Titre";
@@ -23,4 +24,5 @@
 "Contact" = "Contact";
 "Update Post" = "Mettre à jour le message";
 "Add Post" = "Ajouter une publication";
+
 

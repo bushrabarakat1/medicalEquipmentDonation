@@ -8,19 +8,28 @@
 import Foundation
 import UIKit
 class LandingViewController: UIViewController{
-   
+    @IBOutlet weak var registAndLoginView: UIView!{
+        didSet{
+            registAndLoginView.layer.cornerRadius = 40
+            registAndLoginView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+            
+        }
+    }
+    
     @IBOutlet weak var helloLabel: UILabel!{
         didSet{
-            helloLabel.text = "HELLO".localized
+            helloLabel.text = "H E L L O".localized
         }
     }
     @IBOutlet weak var registerLabel: UIButton!{
         didSet{
+            registerLabel.layer.cornerRadius = 20
             registerLabel.setTitle("Register".localized, for: .normal)
         }
     }
     @IBOutlet weak var loginLabel: UIButton!{
         didSet{
+            loginLabel.layer.cornerRadius = 20
             loginLabel.setTitle("Login".localized, for: .normal)
         }
     }
@@ -60,9 +69,9 @@ class LandingViewController: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerLabel.layer.cornerRadius = 20
-        loginLabel.layer.cornerRadius = 20
-    
+//        registerLabel.layer.cornerRadius = 20
+//        loginLabel.layer.cornerRadius = 20
+      
         
     }
     

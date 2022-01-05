@@ -32,7 +32,8 @@ class RegisterViewController: UIViewController{
     }
     @IBOutlet weak var userImageView: UIImageView!{
         didSet{
-            
+            userImageView.layer.cornerRadius = 20
+
             userImageView.isUserInteractionEnabled = true
             let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectimage))
             userImageView.addGestureRecognizer(tabGesture)
@@ -46,6 +47,8 @@ class RegisterViewController: UIViewController{
             userTypeButton.backgroundColor = .systemBackground
         }
     }
+    
+    
     @IBOutlet weak var nameLabel: UILabel!{
         didSet{
             nameLabel.text = "Name".localized
@@ -92,27 +95,32 @@ class RegisterViewController: UIViewController{
         }
     }
     
+    @IBOutlet weak var registerAsBenefactorLabel: UILabel!{
+        didSet{
+            registerAsBenefactorLabel.text = "Register as Benefactor".localized
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerController.delegate = self
-        userImageView.layer.cornerRadius = 10
-    }
-    
-    
-    var isbBenefactor = false
-    @IBAction func userTypeButton(_ sender: Any) {
-        if isbBenefactor {
-            userTypeButton.backgroundColor = .systemBlue
-            isbBenefactor = false
-        }else{
-            userTypeButton.backgroundColor = .systemBackground
-            isbBenefactor = true
-        }
         
     }
     
     
-    
+    var isBenefactor = false
+    @IBAction func userTypeButton(_ sender: Any) {
+        if isBenefactor {
+            userTypeButton.backgroundColor = .systemBackground
+            isBenefactor = false
+        }else{
+            userTypeButton.backgroundColor = .systemBlue
+            isBenefactor = true
+        }
+        
+    }
+  
+
     @IBAction func handelRegisterButton(_ sender: Any) {
         if let image = userImageView.image,
            let imageData = image.jpegData(compressionQuality: 0.25),
@@ -155,7 +163,7 @@ class RegisterViewController: UIViewController{
                                     "email": email,
                                     "phoneNumber": phoneNumber,
                                     "imageUrl": url.absoluteString,
-                                    "type": false
+                                    "type": self.isBenefactor
                                 ]
                                 db.collection("users").document(authResult.user.uid).setData(userData) { error in
                                     if let error = error {
