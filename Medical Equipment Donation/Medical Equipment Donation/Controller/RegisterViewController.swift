@@ -14,12 +14,20 @@ class RegisterViewController: UIViewController{
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
     
+   
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userGenderTextField: UITextField!
     @IBOutlet weak var userBirthDayTextField: UITextField!
     @IBOutlet weak var userCountryTextField: UITextField!
     @IBOutlet weak var userEmailTextFiled: UITextField!
     @IBOutlet weak var userPhoneNumberTextField: UITextField!
+    
+    @IBOutlet weak var containtRegisterInformationView: UIView!{
+        didSet{
+            containtRegisterInformationView.layer.cornerRadius = 40
+            containtRegisterInformationView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        }
+    }
     @IBOutlet weak var userPasswordTextField: UITextField!{
         didSet{
             userPasswordTextField.isSecureTextEntry = true
@@ -32,8 +40,7 @@ class RegisterViewController: UIViewController{
     }
     @IBOutlet weak var userImageView: UIImageView!{
         didSet{
-            userImageView.layer.cornerRadius = 20
-
+            userImageView.layer.cornerRadius = 40 
             userImageView.isUserInteractionEnabled = true
             let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectimage))
             userImageView.addGestureRecognizer(tabGesture)
@@ -51,47 +58,48 @@ class RegisterViewController: UIViewController{
     
     @IBOutlet weak var nameLabel: UILabel!{
         didSet{
-            nameLabel.text = "Name".localized
+            nameLabel.text = "Name :".localized
         }
     }
     @IBOutlet weak var genderLabel: UILabel!{
         didSet{
-            genderLabel.text = "Gender".localized
+            genderLabel.text = "Gender :".localized
         }
     }
     @IBOutlet weak var birthDayLabel: UILabel!{
         didSet{
-            birthDayLabel.text = "BirthDay".localized
+            birthDayLabel.text = "BirthDay :".localized
         }
     }
     @IBOutlet weak var countryLabel: UILabel!{
         didSet{
-            countryLabel.text = "Country".localized
+            countryLabel.text = "Country :".localized
         }
     }
     @IBOutlet weak var emailLabel: UILabel!{
         didSet{
-            emailLabel.text = "Email".localized
+            emailLabel.text = "Email :".localized
         }
     }
     @IBOutlet weak var phoneNumberLabel: UILabel!{
         didSet{
-            phoneNumberLabel.text = "PhonNumber".localized
+            phoneNumberLabel.text = "PhonNumber :".localized
         }
     }
     @IBOutlet weak var passwordLabel: UILabel!{
         didSet{
-            passwordLabel.text = "Password".localized
+            passwordLabel.text = "Password :".localized
         }
     }
     @IBOutlet weak var registerButton: UIButton!{
         didSet{
+            registerButton.layer.cornerRadius = 20
             registerButton.setTitle("Register".localized, for: .normal)
         }
     }
     @IBOutlet weak var confirmPasswordLabel: UILabel!{
         didSet{
-            confirmPasswordLabel.text = "ConfirmPassword".localized
+            confirmPasswordLabel.text = "ConfirmPassword :".localized
         }
     }
     

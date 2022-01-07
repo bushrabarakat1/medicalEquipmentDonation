@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 class LandingViewController: UIViewController{
+    @IBOutlet weak var imageView: UIImageView!
+    
     @IBOutlet weak var registAndLoginView: UIView!{
         didSet{
             registAndLoginView.layer.cornerRadius = 40
@@ -69,9 +71,13 @@ class LandingViewController: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+     
 //        registerLabel.layer.cornerRadius = 20
 //        loginLabel.layer.cornerRadius = 20
-      
+        self.imageView.layer.cornerRadius = 40
+//        self.imageView.layer.shadowOffset = CGSize(width: 10, height: 10)
+//        self.imageView.layer.shadowRadius = 15
+//        self.imageView.layer.shadowOpacity = 0.3
         
     }
     
