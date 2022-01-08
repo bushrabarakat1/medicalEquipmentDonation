@@ -76,19 +76,29 @@
                                     <constraint firstAttribute="height" constant="183" id="d71-dL-zDu"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ii" translatesAutoresizingMaskIntoConstraints="NO" id="Tpe-Vv-GjA">
-                                <rect key="frame" x="15" y="151" width="170.5" height="143"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="dark and light color"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="H  E  L  L  O" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax6-oY-F28">
-                                <rect key="frame" x="171" y="204" width="135" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98600000143051147" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" alignment="bottom" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="lct-3d-ee3">
+                                <rect key="frame" x="-10" y="162.5" width="330" height="185"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="747" image="firstImage" translatesAutoresizingMaskIntoConstraints="NO" id="Tpe-Vv-GjA">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="185"/>
+                                        <color key="backgroundColor" name="dark and light color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="bp9-Qo-Xez"/>
+                                            <constraint firstAttribute="height" constant="185" id="yMk-MY-cqe"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H  E  L  L  O" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax6-oY-F28">
+                                        <rect key="frame" x="230" y="78.5" width="100" height="106.5"/>
+                                        <color key="backgroundColor" name="dark and light color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="106.5" id="wYC-L7-Rcs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="dark and light color"/>
@@ -97,7 +107,10 @@
                             <constraint firstItem="3iQ-Nl-FqJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ca3-QJ-xV3"/>
                             <constraint firstItem="3iQ-Nl-FqJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MRB-j6-SXg"/>
                             <constraint firstItem="GwC-6E-d5d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="Qew-yp-jQD"/>
+                            <constraint firstAttribute="trailing" secondItem="lct-3d-ee3" secondAttribute="trailing" id="gRa-Q8-sba"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GwC-6E-d5d" secondAttribute="trailing" constant="15" id="uyA-mA-x6Y"/>
+                            <constraint firstItem="lct-3d-ee3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="-10" id="v6R-tS-QRF"/>
+                            <constraint firstItem="lct-3d-ee3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-51" id="xCZ-En-ZZY"/>
                             <constraint firstItem="GwC-6E-d5d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yCp-hK-oqi"/>
                         </constraints>
                     </view>
@@ -1113,8 +1126,8 @@
         <segue reference="n23-JP-xId"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="firstImage" width="285" height="177"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="ii" width="285" height="177"/>
         <image name="images-4" width="275" height="183"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="AccentColor">
