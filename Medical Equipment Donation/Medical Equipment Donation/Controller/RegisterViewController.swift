@@ -22,10 +22,23 @@ class RegisterViewController: UIViewController{
     @IBOutlet weak var userEmailTextFiled: UITextField!
     @IBOutlet weak var userPhoneNumberTextField: UITextField!
     
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var registerView: UIView!{
+        didSet{
+            registerView.layer.cornerRadius = 40
+            registerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+            registerView.layer.shadowRadius = 15
+            registerView.layer.shadowOpacity = 0.6
+            registerView.layer.cornerRadius = 40
+            
+        }
+    }
     @IBOutlet weak var containtRegisterInformationView: UIView!{
         didSet{
+//             for corner design
+
             containtRegisterInformationView.layer.cornerRadius = 40
-            containtRegisterInformationView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+
         }
     }
     @IBOutlet weak var userPasswordTextField: UITextField!{
@@ -40,7 +53,10 @@ class RegisterViewController: UIViewController{
     }
     @IBOutlet weak var userImageView: UIImageView!{
         didSet{
-            userImageView.layer.cornerRadius = 40 
+//            userImageView.layer.cornerRadius = 20
+//            userImageView.layer.shadowOffset = CGSize(width: 10, height: 10)
+//            userImageView.layer.shadowRadius = 20
+//            userImageView.layer.shadowOpacity = 0.9
             userImageView.isUserInteractionEnabled = true
             let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectimage))
             userImageView.addGestureRecognizer(tabGesture)

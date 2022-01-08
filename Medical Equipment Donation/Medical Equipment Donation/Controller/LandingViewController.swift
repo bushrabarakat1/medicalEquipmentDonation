@@ -8,12 +8,20 @@
 import Foundation
 import UIKit
 class LandingViewController: UIViewController{
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!{
+        didSet{
+            imageView.layer.cornerRadius = 40
+        }
+    }
     
     @IBOutlet weak var registAndLoginView: UIView!{
         didSet{
+//             corner and shadow design
             registAndLoginView.layer.cornerRadius = 40
             registAndLoginView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+            registAndLoginView.layer.shadowOffset = CGSize(width: 10, height: 10)
+            registAndLoginView.layer.shadowRadius = 20
+            registAndLoginView.layer.shadowOpacity = 0.9
             
         }
     }
@@ -37,6 +45,12 @@ class LandingViewController: UIViewController{
     }
     @IBOutlet weak var langugeChangeSegmented: UISegmentedControl!{
         didSet {
+//            for shadow design
+            langugeChangeSegmented.layer.shadowOffset = CGSize(width: 10, height: 10)
+            langugeChangeSegmented.layer.shadowRadius = 20
+            langugeChangeSegmented.layer.shadowOpacity = 0.9
+            
+//         ___________________________________________________________
             if let language = UserDefaults.standard.string(forKey: "currentLanguage") {
                 switch language {
                 case "ar":
@@ -74,7 +88,6 @@ class LandingViewController: UIViewController{
      
 //        registerLabel.layer.cornerRadius = 20
 //        loginLabel.layer.cornerRadius = 20
-        self.imageView.layer.cornerRadius = 40
 //        self.imageView.layer.shadowOffset = CGSize(width: 10, height: 10)
 //        self.imageView.layer.shadowRadius = 15
 //        self.imageView.layer.shadowOpacity = 0.3
