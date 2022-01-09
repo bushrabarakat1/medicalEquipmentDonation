@@ -61,10 +61,26 @@ class LoginViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//     ........hide keybord.......
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+//      .......return keybord......
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
+    @IBAction func showPassowrdButton(_ sender: AnyObject) {
+        passwordTextField.isSecureTextEntry.toggle()
+        if passwordTextField.isSecureTextEntry{
+            if let image = UIImage(systemName: "eye.fill"){
+                sender.setImage(image, for: .normal)
+            }
+        }else{
+            if let image = UIImage(systemName: "eye.slash.fill"){
+                sender.setImage(image, for: .normal)
+            }
+        }
     }
     
     @IBAction func handleLoginButton(_ sender: Any) {
@@ -81,6 +97,12 @@ class LoginViewController : UIViewController {
                 }
             }
         }
+    }
+}
+extension LoginViewController:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

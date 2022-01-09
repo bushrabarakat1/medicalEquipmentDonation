@@ -44,10 +44,6 @@ class RegisterViewController: UIViewController{
     }
     @IBOutlet weak var userImageView: UIImageView!{
         didSet{
-//            userImageView.layer.cornerRadius = 20
-//            userImageView.layer.shadowOffset = CGSize(width: 10, height: 10)
-//            userImageView.layer.shadowRadius = 20
-//            userImageView.layer.shadowOpacity = 0.9
             userImageView.isUserInteractionEnabled = true
             let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectimage))
             userImageView.addGestureRecognizer(tabGesture)
@@ -62,8 +58,6 @@ class RegisterViewController: UIViewController{
             userTypeButton.backgroundColor = .systemBackground
         }
     }
-    
-    
     @IBOutlet weak var nameLabel: UILabel!{
         didSet{
             nameLabel.text = "Name :".localized
@@ -119,8 +113,20 @@ class RegisterViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         imagePickerController.delegate = self
-//         return keybord
+        
+//        return keybord
+        userNameTextField.delegate = self
+        userGenderTextField.delegate = self
+        userBirthDayTextField.delegate = self
+        userCountryTextField.delegate = self
+        userEmailTextFiled.delegate = self
+        userPhoneNumberTextField.delegate = self
+        userPasswordTextField.delegate = self
+        userConfirmPasswordTextField.delegate = self
+    
+//         hide keybord
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
@@ -266,5 +272,11 @@ extension RegisterViewController:UIImagePickerControllerDelegate,UINavigationCon
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+}
+extension RegisterViewController:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
