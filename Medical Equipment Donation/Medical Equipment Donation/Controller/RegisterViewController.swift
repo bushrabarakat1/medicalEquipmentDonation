@@ -14,17 +14,19 @@ class RegisterViewController: UIViewController{
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
     
-   
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userGenderTextField: UITextField!
     @IBOutlet weak var userBirthDayTextField: UITextField!
     @IBOutlet weak var userCountryTextField: UITextField!
     @IBOutlet weak var userEmailTextFiled: UITextField!
     @IBOutlet weak var userPhoneNumberTextField: UITextField!
+    @IBOutlet weak var userPasswordTextField: UITextField!
+    @IBOutlet weak var userConfirmPasswordTextField: UITextField!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var registerView: UIView!{
         didSet{
+//             for corner and shadow design
             registerView.layer.cornerRadius = 40
             registerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
             registerView.layer.shadowRadius = 15
@@ -36,19 +38,8 @@ class RegisterViewController: UIViewController{
     @IBOutlet weak var containtRegisterInformationView: UIView!{
         didSet{
 //             for corner design
-
             containtRegisterInformationView.layer.cornerRadius = 40
 
-        }
-    }
-    @IBOutlet weak var userPasswordTextField: UITextField!{
-        didSet{
-            userPasswordTextField.isSecureTextEntry = true
-        }
-    }
-    @IBOutlet weak var userConfirmPasswordTextField: UITextField!{
-        didSet{
-            userConfirmPasswordTextField.isSecureTextEntry = true
         }
     }
     @IBOutlet weak var userImageView: UIImageView!{
@@ -64,6 +55,7 @@ class RegisterViewController: UIViewController{
     }
     @IBOutlet weak var userTypeButton: UIButton!{
         didSet{
+//            for corner and shadow design
             userTypeButton.layer.borderWidth = 0.5
             userTypeButton.layer.borderColor = UIColor.systemBlue.cgColor
             userTypeButton.layer.cornerRadius = userTypeButton.frame.size.width / 2.0
@@ -128,10 +120,40 @@ class RegisterViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerController.delegate = self
+//         return keybord
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
         
     }
     
+//     ...........for hiden password.................
+    @IBAction func showPasswordButton(_ sender: AnyObject) {
+        userPasswordTextField.isSecureTextEntry.toggle()
+        if userPasswordTextField.isSecureTextEntry{
+            if let image = UIImage(systemName: "eye.fill"){
+                sender.setImage(image, for: .normal)
+            }
+        }else{
+            if let image = UIImage(systemName: "eye.slash.fill"){
+                sender.setImage(image, for: .normal)
+            }
+        }
+    }
+    @IBAction func showConfirmPasswordButton(_ sender: AnyObject) {
+        userConfirmPasswordTextField.isSecureTextEntry.toggle()
+        if userConfirmPasswordTextField.isSecureTextEntry{
+            if let image = UIImage(systemName: "eye.fill"){
+                sender.setImage(image, for: .normal)
+            }
+        }else{
+            if let image = UIImage(systemName: "eye.slash.fill"){
+                sender.setImage(image, for: .normal)
+            }
+        }
+    }
     
+//   ................for ather user................
     var isBenefactor = false
     @IBAction func userTypeButton(_ sender: Any) {
         if isBenefactor {
@@ -141,10 +163,9 @@ class RegisterViewController: UIViewController{
             userTypeButton.backgroundColor = .systemBlue
             isBenefactor = true
         }
-        
     }
-  
-
+    
+//    .................register Button...............
     @IBAction func handelRegisterButton(_ sender: Any) {
         if let image = userImageView.image,
            let imageData = image.jpegData(compressionQuality: 0.25),

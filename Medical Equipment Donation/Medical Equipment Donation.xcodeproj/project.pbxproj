@@ -25,10 +25,10 @@
 		114DC18E2782F0560025ACE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 114DC1902782F0560025ACE5 /* Localizable.strings */; };
 		114DC1942782F8D50025ACE5 /* BundleExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114DC1932782F8D50025ACE5 /* BundleExtention.swift */; };
 		115209AD277C7A4400A3D2E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115209AC277C7A4400A3D2E5 /* ProfileViewController.swift */; };
+		117C289F278AC919005EE838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117C289E278AC918005EE838 /* Assets.xcassets */; };
 		118B22192777908F00B54273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B22182777908F00B54273 /* AppDelegate.swift */; };
 		118B221B2777908F00B54273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B221A2777908F00B54273 /* SceneDelegate.swift */; };
 		118B22202777908F00B54273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118B221E2777908F00B54273 /* Main.storyboard */; };
-		118B22222777909200B54273 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 118B22212777909200B54273 /* Assets.xcassets */; };
 		118B22252777909200B54273 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118B22232777909200B54273 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -54,11 +54,11 @@
 		114DC1922782F0590025ACE5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		114DC1932782F8D50025ACE5 /* BundleExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtention.swift; sourceTree = "<group>"; };
 		115209AC277C7A4400A3D2E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		117C289E278AC918005EE838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		118B22152777908F00B54273 /* Medical Equipment Donation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medical Equipment Donation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		118B22182777908F00B54273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		118B221A2777908F00B54273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		118B221F2777908F00B54273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		118B22212777909200B54273 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		118B22242777909200B54273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		118B22262777909200B54273 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,9 +143,9 @@
 				1146412F27799C7A00754E36 /* Model */,
 				1146413F277A5AE300754E36 /* View */,
 				1146413027799CA600754E36 /* Controller */,
-				118B22212777909200B54273 /* Assets.xcassets */,
 				118B221A2777908F00B54273 /* SceneDelegate.swift */,
 				118B22182777908F00B54273 /* AppDelegate.swift */,
+				117C289E278AC918005EE838 /* Assets.xcassets */,
 				118B22232777909200B54273 /* LaunchScreen.storyboard */,
 				118B22262777909200B54273 /* Info.plist */,
 				1146412027788CEF00754E36 /* GoogleService-Info.plist */,
@@ -223,9 +223,9 @@
 			files = (
 				114DC18E2782F0560025ACE5 /* Localizable.strings in Resources */,
 				118B22252777909200B54273 /* LaunchScreen.storyboard in Resources */,
-				118B22222777909200B54273 /* Assets.xcassets in Resources */,
 				1146412127788CEF00754E36 /* GoogleService-Info.plist in Resources */,
 				118B22202777908F00B54273 /* Main.storyboard in Resources */,
+				117C289F278AC919005EE838 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

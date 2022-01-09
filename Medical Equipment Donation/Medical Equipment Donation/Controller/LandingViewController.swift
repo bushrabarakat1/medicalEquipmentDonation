@@ -16,7 +16,7 @@ class LandingViewController: UIViewController{
     
     @IBOutlet weak var registAndLoginView: UIView!{
         didSet{
-//             corner and shadow design
+//        ..........corner and shadow design.............
             registAndLoginView.layer.cornerRadius = 40
             registAndLoginView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
             registAndLoginView.layer.shadowOffset = CGSize(width: 10, height: 10)
@@ -25,7 +25,6 @@ class LandingViewController: UIViewController{
             
         }
     }
-    
     @IBOutlet weak var helloLabel: UILabel!{
         didSet{
             helloLabel.text = "H E L L O".localized
@@ -45,12 +44,12 @@ class LandingViewController: UIViewController{
     }
     @IBOutlet weak var langugeChangeSegmented: UISegmentedControl!{
         didSet {
-//            for shadow design
+//       ..............for shadow design.........................
             langugeChangeSegmented.layer.shadowOffset = CGSize(width: 10, height: 10)
             langugeChangeSegmented.layer.shadowRadius = 20
             langugeChangeSegmented.layer.shadowOpacity = 0.9
             
-//         ___________________________________________________________
+//       ................for transalate...........................
             if let language = UserDefaults.standard.string(forKey: "currentLanguage") {
                 switch language {
                 case "ar":
@@ -85,12 +84,6 @@ class LandingViewController: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-//        registerLabel.layer.cornerRadius = 20
-//        loginLabel.layer.cornerRadius = 20
-//        self.imageView.layer.shadowOffset = CGSize(width: 10, height: 10)
-//        self.imageView.layer.shadowRadius = 15
-//        self.imageView.layer.shadowOpacity = 0.3
         
     }
     

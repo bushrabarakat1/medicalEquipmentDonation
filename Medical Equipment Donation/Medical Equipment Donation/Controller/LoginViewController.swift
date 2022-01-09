@@ -12,24 +12,48 @@ class LoginViewController : UIViewController {
     
     var activityIndicator = UIActivityIndicatorView()
     
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!{
+        didSet{
+//            for cornar and shadow design
+            emailTextField.layer.cornerRadius = 40
+            emailTextField.layer.shadowRadius = 15
+            emailTextField.layer.shadowOpacity = 0.6
+            emailTextField.layer.cornerRadius = 40
+        }
+    }
     @IBOutlet weak var passwordTextField: UITextField!{
         didSet{
-            passwordTextField.isSecureTextEntry = true
+//            for cornar and shadow design
+            passwordTextField.layer.cornerRadius = 40
+            passwordTextField.layer.shadowRadius = 15
+            passwordTextField.layer.shadowOpacity = 0.6
+            passwordTextField.layer.cornerRadius = 40
+            
+        }
+    }
+    @IBOutlet weak var loginView: UIView!{
+        didSet{
+//            for corner and shadow design
+            loginView.layer.cornerRadius = 40
+            loginView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+            loginView.layer.shadowRadius = 15
+            loginView.layer.shadowOpacity = 0.6
+            loginView.layer.cornerRadius = 40
         }
     }
     @IBOutlet weak var emailLabel: UILabel!{
         didSet{
-            emailLabel.text = "Email".localized
+            emailLabel.text = "Email :".localized
         }
     }
     @IBOutlet weak var passwordLabel: UILabel!{
         didSet{
-            passwordLabel.text = "Password".localized
+            passwordLabel.text = "Password :".localized
         }
     }
     @IBOutlet weak var loginButton: UIButton!{
         didSet{
+            loginButton.layer.cornerRadius = 20
             loginButton.setTitle("Login".localized, for: .normal)
         }
     }
@@ -38,7 +62,9 @@ class LoginViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
     @IBAction func handleLoginButton(_ sender: Any) {
