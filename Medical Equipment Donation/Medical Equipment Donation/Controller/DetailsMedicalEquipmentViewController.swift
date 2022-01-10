@@ -11,26 +11,39 @@ class DetailsMedicalEquipmentViewController: UIViewController{
     var selectedPostImage:UIImage?
     var selectedUserImage:UIImage?
     
-    @IBOutlet weak var postMedicalEquipmentImageView: UIImageView!
+    @IBOutlet weak var postMedicalEquipmentImageView: UIImageView!{
+        didSet{
+            postMedicalEquipmentImageView.layer.cornerRadius = 40
+        }
+    }
+    @IBOutlet weak var detailsView: UIView!
     @IBOutlet weak var postTitleMedicalEquipmentLable: UILabel!
     @IBOutlet weak var postDescriptionMedicalEquipmentLabel: UILabel!
-    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userImageView: UIImageView!{
+        didSet{
+            userImageView.layer.borderWidth = 2.0
+            userImageView.layer.cornerRadius = userImageView.bounds.height / 2
+            userImageView.layer.masksToBounds = true
+        }
+    }
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userPhoneNumberLabel: UILabel!
     @IBOutlet weak var contactLabel: UILabel!{
         didSet{
+            contactLabel.layer.masksToBounds = true
+            contactLabel.layer.cornerRadius = 15
             contactLabel.text = "Contact".localized
         }
     }
     @IBOutlet weak var emailLabel: UILabel!{
         didSet{
-            emailLabel.text = "Email".localized
+            emailLabel.text = "Email:".localized
         }
     }
     @IBOutlet weak var phonNumberLabel: UILabel!{
         didSet{
-            phonNumberLabel.text = "PhonNumber".localized
+            phonNumberLabel.text = "PhonNumber:".localized
         }
     }
     

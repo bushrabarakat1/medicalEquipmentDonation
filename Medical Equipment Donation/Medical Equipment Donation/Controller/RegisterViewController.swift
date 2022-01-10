@@ -31,7 +31,7 @@ class RegisterViewController: UIViewController{
             registerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
             registerView.layer.shadowRadius = 15
             registerView.layer.shadowOpacity = 0.6
-            registerView.layer.cornerRadius = 40
+            
             
         }
     }

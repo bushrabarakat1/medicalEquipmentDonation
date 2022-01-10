@@ -19,8 +19,9 @@
 "Register as Benefactor" = "التسجيل كمتبرع:";
 "Logout" = "خروج";
 "MedicalEquipment" = "المعدات الطبية";
-"Title" = "الموضوع";
-"Description" = "الوصف";
+"Title :" = "الموضوع:";
+"Description :" = " الوصف:";
 "Contact" = "تواصل";
 "Update Post" = "تعديل";
 "Add Post" = "اضافة";
+"My Profile" = "بياناتي";

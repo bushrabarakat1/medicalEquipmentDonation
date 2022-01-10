@@ -18,7 +18,7 @@ class LoginViewController : UIViewController {
             emailTextField.layer.cornerRadius = 40
             emailTextField.layer.shadowRadius = 15
             emailTextField.layer.shadowOpacity = 0.6
-            emailTextField.layer.cornerRadius = 40
+           
         }
     }
     @IBOutlet weak var passwordTextField: UITextField!{
@@ -27,8 +27,6 @@ class LoginViewController : UIViewController {
             passwordTextField.layer.cornerRadius = 40
             passwordTextField.layer.shadowRadius = 15
             passwordTextField.layer.shadowOpacity = 0.6
-            passwordTextField.layer.cornerRadius = 40
-            
         }
     }
     @IBOutlet weak var loginView: UIView!{
@@ -38,7 +36,6 @@ class LoginViewController : UIViewController {
             loginView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
             loginView.layer.shadowRadius = 15
             loginView.layer.shadowOpacity = 0.6
-            loginView.layer.cornerRadius = 40
         }
     }
     @IBOutlet weak var emailLabel: UILabel!{

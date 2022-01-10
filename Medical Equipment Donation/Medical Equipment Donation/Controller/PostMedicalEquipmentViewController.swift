@@ -15,35 +15,57 @@ class PostMedicalEquipmentViewController: UIViewController{
     
     @IBOutlet weak var postMedicalEquipmentTitleTextField: UITextField!
     @IBOutlet weak var postMedicalEquipmentDescriptionTextField: UITextView!
-    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userImageView: UIImageView!{
+        didSet{
+            userImageView.layer.borderWidth = 2.0
+            userImageView.layer.cornerRadius = userImageView.bounds.height / 2
+            userImageView.layer.masksToBounds = true
+        }
+    }
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userPhoneNumberLabel: UILabel!
-    @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var actionButton: UIButton!{
+        didSet{
+            actionButton.layer.cornerRadius = 15
+        }
+    }
 
     @IBOutlet weak var titleLabel: UILabel!{
         didSet{
-            titleLabel.text = "Title".localized
+            titleLabel.text = "Title :".localized
         }
     }
+    @IBOutlet weak var addAndEditeView: UIView!{
+        didSet{
+//      ......for corner and shadow design.....
+            addAndEditeView.layer.cornerRadius = 40
+            addAndEditeView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+            addAndEditeView.layer.shadowRadius = 15
+            addAndEditeView.layer.shadowOpacity = 0.6
+        }
+    }
+    
     @IBOutlet weak var descriptionLabel: UILabel!{
         didSet{
-            descriptionLabel.text = "Description".localized
+            descriptionLabel.text = "Description :".localized
         }
     }
     @IBOutlet weak var contactLabel: UILabel!{
         didSet{
+            contactLabel.layer.masksToBounds = true
+            contactLabel.layer.cornerRadius = 15
             contactLabel.text = "Contact".localized
         }
     }
     @IBOutlet weak var emailLabel: UILabel!{
         didSet{
-            emailLabel.text = "Email".localized
+            emailLabel.text = "Email :".localized
         }
     }
     @IBOutlet weak var phoneNumberLabel: UILabel!{
         didSet{
-            phoneNumberLabel.text = "PhonNumber".localized
+            phoneNumberLabel.text = "PhonNumber :".localized
         }
     }
   
@@ -54,10 +76,15 @@ class PostMedicalEquipmentViewController: UIViewController{
             postMedicalEquipmentImageView.addGestureRecognizer(tapGesture)
         }
     }
-
     let activityIndicator = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        .......return keybord......
+        postMedicalEquipmentTitleTextField.delegate = self
+        postMedicalEquipmentDescriptionTextField.delegate = self
+        
+        
         if let selectedPost = selectedPost,
         let selectedImage = selectedPostImage{
             postMedicalEquipmentTitleTextField.text = selectedPost.title
@@ -202,7 +229,17 @@ extension PostMedicalEquipmentViewController: UIImagePickerControllerDelegate, U
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
 }
-
+extension PostMedicalEquipmentViewController:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+extension PostMedicalEquipmentViewController: UITextViewDelegate{
+    func textViewShouldReturn(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
+}
 

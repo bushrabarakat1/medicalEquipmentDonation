@@ -13,13 +13,34 @@ class ProfileViewContrller: UIViewController{
     var selectedPost:Post?
     var selectedUserImage:UIImage?
     
-    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userImageView: UIImageView!{
+        didSet{
+//            userImageView.layer.cornerRadius = 40
+            userImageView.layer.borderWidth = 2.0
+            userImageView.layer.cornerRadius = userImageView.bounds.height / 2
+            userImageView.layer.masksToBounds = true
+        }
+    }
+    @IBOutlet weak var profileView: UIView!{
+        didSet{
+            profileView.layer.cornerRadius = 40
+            profileView.layer.shadowRadius = 15
+            profileView.layer.shadowOpacity = 0.6
+        }
+    }
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userBirthDayLabel: UILabel!
     @IBOutlet weak var userCountryLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userPhoneNumberLabel: UILabel!
     
+    
+    
+    @IBOutlet weak var titleProfilLabel: UINavigationItem!{
+        didSet{
+            titleProfilLabel.title = "My Profile".localized
+        }
+    }
     @IBOutlet weak var nameLabel: UILabel!{
         didSet{
             nameLabel.text = "Name".localized

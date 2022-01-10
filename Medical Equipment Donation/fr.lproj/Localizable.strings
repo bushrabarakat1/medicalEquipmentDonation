@@ -19,10 +19,11 @@
 "Register as Benefactor" = "S'inscrire comme bienfaiteur";
 "Logout" = "Se déconnecter";
 "MedicalEquipment" = "Équipement médical";
-"Title" = "Titre";
-"Description" = "La description";
+"Title :" = "Titre :";
+"Description :" = "La description :";
 "Contact" = "Contact";
 "Update Post" = "Mettre à jour le message";
 "Add Post" = "Ajouter une publication";
+"My Profile" = "Mon profil";
 
 
