@@ -14,7 +14,16 @@ class PostMedicalEquipmentViewController: UIViewController{
     var selectedUserImage:UIImage?
     
     @IBOutlet weak var postMedicalEquipmentTitleTextField: UITextField!
-    @IBOutlet weak var postMedicalEquipmentDescriptionTextField: UITextView!
+    @IBOutlet weak var postMedicalEquipmentDescriptionTextField: UITextView!{
+        didSet{
+//            postMedicalEquipmentDescriptionTextField.layer.borderWidth = 2.0
+//            postMedicalEquipmentDescriptionTextField.layer.borderColor = UIColor.lightGray.cgColor
+//            postMedicalEquipmentDescriptionTextField.layer.masksToBounds = true
+            postMedicalEquipmentDescriptionTextField.layer.cornerRadius = 5
+            postMedicalEquipmentDescriptionTextField.layer.shadowRadius = 15
+            postMedicalEquipmentDescriptionTextField.layer.shadowOpacity = 0.6
+        }
+    }
     @IBOutlet weak var userImageView: UIImageView!{
         didSet{
             userImageView.layer.borderWidth = 2.0
@@ -39,8 +48,7 @@ class PostMedicalEquipmentViewController: UIViewController{
     @IBOutlet weak var addAndEditeView: UIView!{
         didSet{
 //      ......for corner and shadow design.....
-            addAndEditeView.layer.cornerRadius = 40
-            addAndEditeView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+            addAndEditeView.layer.cornerRadius = 20
             addAndEditeView.layer.shadowRadius = 15
             addAndEditeView.layer.shadowOpacity = 0.6
         }
@@ -82,8 +90,11 @@ class PostMedicalEquipmentViewController: UIViewController{
         super.viewDidLoad()
 //        .......return keybord......
         postMedicalEquipmentTitleTextField.delegate = self
-        postMedicalEquipmentDescriptionTextField.delegate = self
-        
+//        .......hide keybord........
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+//        ...........................
         
         if let selectedPost = selectedPost,
         let selectedImage = selectedPostImage{
@@ -236,10 +247,5 @@ extension PostMedicalEquipmentViewController:UITextFieldDelegate{
         return true
     }
 }
-extension PostMedicalEquipmentViewController: UITextViewDelegate{
-    func textViewShouldReturn(_ textView: UITextView) -> Bool {
-        textView.resignFirstResponder()
-        return true
-    }
-}
+
 

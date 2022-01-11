@@ -15,6 +15,7 @@ class HomeMedicalEquipmentViewController: UIViewController{
     var selectedPostImage:UIImage?
     var selectedUserImage:UIImage?
     
+    
     @IBOutlet weak var plusButton: UIBarButtonItem!
     
     @IBOutlet weak var titleLabel: UINavigationItem!{
@@ -22,14 +23,11 @@ class HomeMedicalEquipmentViewController: UIViewController{
             titleLabel.title = "MedicalEquipment".localized
         }
     }
-    
     @IBOutlet weak var postMedicalEquipmentTableView: UITableView!{
         didSet{
             postMedicalEquipmentTableView.delegate = self
             postMedicalEquipmentTableView.dataSource = self
-           
         }
-        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,15 +78,15 @@ class HomeMedicalEquipmentViewController: UIViewController{
                         
                        
                                     self.postMedicalEquipmentTableView.beginUpdates()
-                                    if snapshot.documentChanges.count != 1 {
+//                                    if snapshot.documentChanges.count != 1 {
                                         self.posts.append(post)
                                         
                                         self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row:self.posts.count - 1,section: 0)],with: .automatic)
-                                    }else {
-                                        self.posts.insert(post,at:0)
-                                        
-                                        self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
-                                    }
+//                                    }else {
+//                                        self.posts.insert(post,at:0)
+//
+//                                        self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
+//                                    }
                                     
                                     self.postMedicalEquipmentTableView.endUpdates()
                                     
@@ -155,8 +153,6 @@ class HomeMedicalEquipmentViewController: UIViewController{
         }
     }
 }
-
-
 extension HomeMedicalEquipmentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count

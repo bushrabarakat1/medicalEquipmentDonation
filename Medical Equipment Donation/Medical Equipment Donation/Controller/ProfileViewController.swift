@@ -43,27 +43,27 @@ class ProfileViewContrller: UIViewController{
     }
     @IBOutlet weak var nameLabel: UILabel!{
         didSet{
-            nameLabel.text = "Name".localized
+            nameLabel.text = "Name :".localized
         }
     }
     @IBOutlet weak var birthdayLabel: UILabel!{
         didSet{
-            birthdayLabel.text = "BirthDay".localized
+            birthdayLabel.text = "BirthDay :".localized
         }
     }
     @IBOutlet weak var countryLabel: UILabel!{
         didSet{
-            countryLabel.text = "Country".localized
+            countryLabel.text = "Country :".localized
         }
     }
     @IBOutlet weak var emailLabel: UILabel!{
         didSet{
-            emailLabel.text = "Email".localized
+            emailLabel.text = "Email :".localized
         }
     }
     @IBOutlet weak var phoneNumberLabel: UILabel!{
         didSet{
-            phoneNumberLabel.text = "PhonNumber".localized
+            phoneNumberLabel.text = "PhonNumber :".localized
         }
     }
     
