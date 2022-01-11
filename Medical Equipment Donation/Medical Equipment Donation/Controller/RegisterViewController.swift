@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Contacts
+import SwiftUI
 class RegisterViewController: UIViewController{
     
     let imagePickerController = UIImagePickerController()
@@ -187,19 +188,24 @@ class RegisterViewController: UIViewController{
             Activity.showIndicator(parentView: self.view , childView: activityIndicator)
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let error = error {
+                    Alert.showAlert(strTitle: "Error", strMessage: error.localizedDescription, viewController: self)
+                    Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                     print ("Registration Storage Error", error.localizedDescription)
                 }
                 if let authResult = authResult {
-                    
                     let storageRef = Storage.storage().reference(withPath: "users/\(authResult.user.uid)")
                     let uploadMeta = StorageMetadata.init()
                     uploadMeta.contentType = "image/jpeg"
                     storageRef.putData(imageData, metadata: uploadMeta) { storageMeta, error in
                         if let error = error {
+                            Alert.showAlert(strTitle: "Error", strMessage: error.localizedDescription, viewController: self)
+                            Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                             print("Registration Storage Error",error.localizedDescription)
                         }
                         storageRef.downloadURL { url, error in
                             if let error = error {
+                                Alert.showAlert(strTitle: "Error", strMessage: error.localizedDescription, viewController: self)
+                                Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                                 print("Registration Storage Download Url Error",error.localizedDescription)
                             }
                             if let url = url {
@@ -218,6 +224,8 @@ class RegisterViewController: UIViewController{
                                 ]
                                 db.collection("users").document(authResult.user.uid).setData(userData) { error in
                                     if let error = error {
+                                        Alert.showAlert(strTitle: "Error", strMessage: error.localizedDescription, viewController: self)
+                                        Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                                         print("Registration Database error",error.localizedDescription)
                                     }else {
                                         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UINavigationController {
@@ -232,10 +240,8 @@ class RegisterViewController: UIViewController{
                     }
                 }
             }
-        }
     }
-    
-    
+  }
 }
 extension RegisterViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     @objc func selectimage(){

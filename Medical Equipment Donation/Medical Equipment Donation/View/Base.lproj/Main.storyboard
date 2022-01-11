@@ -1325,6 +1325,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="labelColor"/>
+                        <color key="selectedImageTintColor" name="Color-1"/>
                     </tabBar>
                     <connections>
                         <segue destination="khg-qs-LJI" kind="relationship" relationship="viewControllers" id="tNl-79-CQ1"/>

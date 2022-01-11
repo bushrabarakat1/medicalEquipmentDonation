@@ -26,6 +26,7 @@
 		114DC1942782F8D50025ACE5 /* BundleExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114DC1932782F8D50025ACE5 /* BundleExtention.swift */; };
 		115209AD277C7A4400A3D2E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115209AC277C7A4400A3D2E5 /* ProfileViewController.swift */; };
 		1179941C278D82720081ABA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117C289E278AC918005EE838 /* Assets.xcassets */; };
+		1179941E278DB1510081ABA2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1179941D278DB1500081ABA2 /* Alert.swift */; };
 		118B22192777908F00B54273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B22182777908F00B54273 /* AppDelegate.swift */; };
 		118B221B2777908F00B54273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B221A2777908F00B54273 /* SceneDelegate.swift */; };
 		118B22202777908F00B54273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118B221E2777908F00B54273 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		114DC1922782F0590025ACE5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		114DC1932782F8D50025ACE5 /* BundleExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtention.swift; sourceTree = "<group>"; };
 		115209AC277C7A4400A3D2E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1179941D278DB1500081ABA2 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		117C289E278AC918005EE838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		118B22152777908F00B54273 /* Medical Equipment Donation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medical Equipment Donation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		118B22182777908F00B54273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				1146412B2779982700754E36 /* User.swift */,
 				1146413B277A034A00754E36 /* Post.swift */,
+				1179941D278DB1500081ABA2 /* Alert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				1146413A2779EFED00754E36 /* LandingViewController.swift in Sources */,
 				11464147277AF42D00754E36 /* PostMedicalEquipmentViewController.swift in Sources */,
 				118B221B2777908F00B54273 /* SceneDelegate.swift in Sources */,
+				1179941E278DB1510081ABA2 /* Alert.swift in Sources */,
 				1146413C277A034A00754E36 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
