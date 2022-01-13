@@ -13,15 +13,14 @@ class PostMedicalEquipmentViewController: UIViewController{
     var selectedPostImage:UIImage?
     var selectedUserImage:UIImage?
     
-    @IBOutlet weak var postMedicalEquipmentTitleTextField: UITextField!
+    @IBOutlet weak var postMedicalEquipmentTitleTextField: UITextField!{
+        didSet{
+            postMedicalEquipmentTitleTextField.placeholder = "Write your title here".localized
+        }
+    }
     @IBOutlet weak var postMedicalEquipmentDescriptionTextField: UITextView!{
         didSet{
-//            postMedicalEquipmentDescriptionTextField.layer.borderWidth = 2.0
-//            postMedicalEquipmentDescriptionTextField.layer.borderColor = UIColor.lightGray.cgColor
-//            postMedicalEquipmentDescriptionTextField.layer.masksToBounds = true
             postMedicalEquipmentDescriptionTextField.layer.cornerRadius = 5
-            postMedicalEquipmentDescriptionTextField.layer.shadowRadius = 15
-            postMedicalEquipmentDescriptionTextField.layer.shadowOpacity = 0.6
         }
     }
     @IBOutlet weak var userImageView: UIImageView!{
@@ -37,23 +36,15 @@ class PostMedicalEquipmentViewController: UIViewController{
     @IBOutlet weak var actionButton: UIButton!{
         didSet{
             actionButton.layer.cornerRadius = 15
+            actionButton.layer.shadowRadius = 15
+            actionButton.layer.shadowOpacity = 0.3
         }
     }
-
     @IBOutlet weak var titleLabel: UILabel!{
         didSet{
             titleLabel.text = "Title :".localized
         }
     }
-    @IBOutlet weak var addAndEditeView: UIView!{
-        didSet{
-//      ......for corner and shadow design.....
-            addAndEditeView.layer.cornerRadius = 20
-            addAndEditeView.layer.shadowRadius = 15
-            addAndEditeView.layer.shadowOpacity = 0.6
-        }
-    }
-    
     @IBOutlet weak var descriptionLabel: UILabel!{
         didSet{
             descriptionLabel.text = "Description :".localized
@@ -76,7 +67,7 @@ class PostMedicalEquipmentViewController: UIViewController{
             phoneNumberLabel.text = "PhonNumber :".localized
         }
     }
-  
+    
     @IBOutlet weak var postMedicalEquipmentImageView: UIImageView!{
         didSet {
             postMedicalEquipmentImageView.isUserInteractionEnabled = true
@@ -88,34 +79,49 @@ class PostMedicalEquipmentViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        .......return keybord......
+        
+        //        .......return keybord......
         postMedicalEquipmentTitleTextField.delegate = self
-//        .......hide keybord........
+        //        .......hide keybord........
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
-//        ...........................
+        //        .......user information....
+        getUser()
+        
+//        ...............................................
         
         if let selectedPost = selectedPost,
-        let selectedImage = selectedPostImage{
+           let selectedImage = selectedPostImage{
             postMedicalEquipmentTitleTextField.text = selectedPost.title
             postMedicalEquipmentDescriptionTextField.text = selectedPost.description
             postMedicalEquipmentImageView.image = selectedImage
-            userNameLabel.text = selectedPost.user.userName
-            userEmailLabel.text = selectedPost.user.email
-            userPhoneNumberLabel.text = selectedPost.user.phoneNumber
-            userImageView.image = selectedUserImage
             
             actionButton.setTitle("Update Post".localized, for: .normal)
             let deleteBarButton = UIBarButtonItem(image: UIImage(systemName: "trash.fill"), style: .plain, target: self, action: #selector(handleDelete))
             self.navigationItem.rightBarButtonItem = deleteBarButton
-            
         }else {
             actionButton.setTitle("Add Post".localized, for: .normal)
             self.navigationItem.rightBarButtonItem = nil
         }
     }
-    
+    func getUser() {
+        let ref = Firestore.firestore()
+        if let currentUser = Auth.auth().currentUser{
+            ref.collection("users").document(currentUser.uid).addSnapshotListener { snapshot, error in
+                if let error = error {
+                    print("DB ERROR Posts",error.localizedDescription)
+                }
+                if let snapshot = snapshot ,let userData = snapshot.data(){
+                    let user = User(dict: userData)
+                    self.userImageView.loadImageUsingCache(with: user.imageUrl)
+                    self.userNameLabel.text = user.userName
+                    self.userEmailLabel.text = user.email
+                    self.userPhoneNumberLabel.text = user.phoneNumber
+                }
+            }
+        }
+    }
     @objc func handleDelete (_ sender: UIBarButtonItem) {
         let ref = Firestore.firestore().collection("posts")
         if let selectedPost = selectedPost {
@@ -140,9 +146,6 @@ class PostMedicalEquipmentViewController: UIViewController{
             }
         }
     }
-
-    
-    
     @IBAction func buttonAction(_ sender: Any) {
         if let image = postMedicalEquipmentImageView.image,
            let imageData = image.jpegData(compressionQuality: 0.25),
@@ -150,7 +153,7 @@ class PostMedicalEquipmentViewController: UIViewController{
            let description = postMedicalEquipmentDescriptionTextField.text,
            let currentUser = Auth.auth().currentUser {
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
-//            ref.addDocument(data:)
+            //            ref.addDocument(data:)
             var postId = ""
             if let selectedPost = selectedPost {
                 postId = selectedPost.id
@@ -187,7 +190,7 @@ class PostMedicalEquipmentViewController: UIViewController{
                                 "imageUrl":url.absoluteString,
                                 "createdAt":FieldValue.serverTimestamp(),
                                 "updatedAt": FieldValue.serverTimestamp()
-                               
+                                
                             ]
                         }
                         ref.document(postId).setData(postData) { error in
@@ -201,7 +204,6 @@ class PostMedicalEquipmentViewController: UIViewController{
                 }
             }
         }
-        
     }
 }
 extension PostMedicalEquipmentViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -223,7 +225,7 @@ extension PostMedicalEquipmentViewController: UIImagePickerControllerDelegate, U
     //get image from source type
     private func getImage(fromSourceType sourceType: UIImagePickerController.SourceType) {
         
-        //Check is source type available
+    //Check is source type available
         if UIImagePickerController.isSourceTypeAvailable(sourceType) {
             
             let imagePickerController = UIImagePickerController()

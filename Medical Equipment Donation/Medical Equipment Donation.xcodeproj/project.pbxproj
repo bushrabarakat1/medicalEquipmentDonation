@@ -27,6 +27,7 @@
 		115209AD277C7A4400A3D2E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115209AC277C7A4400A3D2E5 /* ProfileViewController.swift */; };
 		1179941C278D82720081ABA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117C289E278AC918005EE838 /* Assets.xcassets */; };
 		1179941E278DB1510081ABA2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1179941D278DB1500081ABA2 /* Alert.swift */; };
+		11799421278EF8CC0081ABA2 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 11799420278EF8CC0081ABA2 /* IQKeyboardManagerSwift */; };
 		118B22192777908F00B54273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B22182777908F00B54273 /* AppDelegate.swift */; };
 		118B221B2777908F00B54273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B221A2777908F00B54273 /* SceneDelegate.swift */; };
 		118B22202777908F00B54273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118B221E2777908F00B54273 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		114DC1932782F8D50025ACE5 /* BundleExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtention.swift; sourceTree = "<group>"; };
 		115209AC277C7A4400A3D2E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1179941D278DB1500081ABA2 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		11799422278F085E0081ABA2 /* Medical Equipment DonationDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Medical Equipment DonationDebug.entitlements"; sourceTree = "<group>"; };
 		117C289E278AC918005EE838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		118B22152777908F00B54273 /* Medical Equipment Donation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medical Equipment Donation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		118B22182777908F00B54273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1146412427788D9600754E36 /* FirebaseAuth in Frameworks */,
+				11799421278EF8CC0081ABA2 /* IQKeyboardManagerSwift in Frameworks */,
 				1146412627788D9600754E36 /* FirebaseFirestore in Frameworks */,
 				1146412827788D9600754E36 /* FirebaseStorage in Frameworks */,
 			);
@@ -84,7 +87,6 @@
 			children = (
 				1146412B2779982700754E36 /* User.swift */,
 				1146413B277A034A00754E36 /* Post.swift */,
-				1179941D278DB1500081ABA2 /* Alert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,8 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				114641292779960900754E36 /* ImageView.swift */,
-				114641352779E51200754E36 /* Activity.swift */,
 				114DC1932782F8D50025ACE5 /* BundleExtention.swift */,
+				114641352779E51200754E36 /* Activity.swift */,
+				1179941D278DB1500081ABA2 /* Alert.swift */,
 			);
 			path = Utill;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 		118B22172777908F00B54273 /* Medical Equipment Donation */ = {
 			isa = PBXGroup;
 			children = (
+				11799422278F085E0081ABA2 /* Medical Equipment DonationDebug.entitlements */,
 				1146413D277A4E5C00754E36 /* Utill */,
 				1146412F27799C7A00754E36 /* Model */,
 				1146413F277A5AE300754E36 /* View */,
@@ -176,6 +180,7 @@
 				1146412327788D9600754E36 /* FirebaseAuth */,
 				1146412527788D9600754E36 /* FirebaseFirestore */,
 				1146412727788D9600754E36 /* FirebaseStorage */,
+				11799420278EF8CC0081ABA2 /* IQKeyboardManagerSwift */,
 			);
 			productName = "Medical Equipment Donation";
 			productReference = 118B22152777908F00B54273 /* Medical Equipment Donation.app */;
@@ -209,6 +214,7 @@
 			mainGroup = 118B220C2777908F00B54273;
 			packageReferences = (
 				1146412227788D9600754E36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1179941F278EF8CC0081ABA2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 118B22162777908F00B54273 /* Products */;
 			projectDirPath = "";
@@ -417,8 +423,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Medical Equipment Donation/Medical Equipment DonationDebug.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34XVCMFU5G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Medical Equipment Donation/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -498,6 +506,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		1179941F278EF8CC0081ABA2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -515,6 +531,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1146412227788D9600754E36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		11799420278EF8CC0081ABA2 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1179941F278EF8CC0081ABA2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

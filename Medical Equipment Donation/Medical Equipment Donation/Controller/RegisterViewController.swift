@@ -15,6 +15,7 @@ class RegisterViewController: UIViewController{
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userGenderTextField: UITextField!
     @IBOutlet weak var userBirthDayTextField: UITextField!
@@ -23,40 +24,10 @@ class RegisterViewController: UIViewController{
     @IBOutlet weak var userPhoneNumberTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var userConfirmPasswordTextField: UITextField!
-    
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var registerView: UIView!{
-        didSet{
-//             for corner and shadow design
-            registerView.layer.cornerRadius = 40
-            registerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-            registerView.layer.shadowRadius = 15
-            registerView.layer.shadowOpacity = 0.6
-            
-            
-        }
-    }
     @IBOutlet weak var containtRegisterInformationView: UIView!{
         didSet{
-//             for corner design
+            //       .....for corner design.......
             containtRegisterInformationView.layer.cornerRadius = 40
-
-        }
-    }
-    @IBOutlet weak var userImageView: UIImageView!{
-        didSet{
-            userImageView.isUserInteractionEnabled = true
-            let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectimage))
-            userImageView.addGestureRecognizer(tabGesture)
-        }
-    }
-    @IBOutlet weak var userTypeButton: UIButton!{
-        didSet{
-//            for corner and shadow design
-            userTypeButton.layer.borderWidth = 0.5
-            userTypeButton.layer.borderColor = UIColor.systemBlue.cgColor
-            userTypeButton.layer.cornerRadius = userTypeButton.frame.size.width / 2.0
-            userTypeButton.backgroundColor = .systemBackground
         }
     }
     @IBOutlet weak var nameLabel: UILabel!{
@@ -79,6 +50,7 @@ class RegisterViewController: UIViewController{
             countryLabel.text = "Country :".localized
         }
     }
+    
     @IBOutlet weak var emailLabel: UILabel!{
         didSet{
             emailLabel.text = "Email :".localized
@@ -94,21 +66,45 @@ class RegisterViewController: UIViewController{
             passwordLabel.text = "Password :".localized
         }
     }
+    @IBOutlet weak var confirmPasswordLabel: UILabel!{
+        didSet{
+            confirmPasswordLabel.text = "ConfirmPassword :".localized
+        }
+    }
+    @IBOutlet weak var registerAsBenefactorLabel: UILabel!{
+        didSet{
+            registerAsBenefactorLabel.text = "Register as Benefactor".localized
+        }
+    }
     @IBOutlet weak var registerButton: UIButton!{
         didSet{
             registerButton.layer.cornerRadius = 20
             registerButton.setTitle("Register".localized, for: .normal)
         }
     }
-    @IBOutlet weak var confirmPasswordLabel: UILabel!{
+    @IBOutlet weak var userImageView: UIImageView!{
         didSet{
-            confirmPasswordLabel.text = "ConfirmPassword :".localized
+            userImageView.isUserInteractionEnabled = true
+            let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectimage))
+            userImageView.addGestureRecognizer(tabGesture)
         }
     }
-    
-    @IBOutlet weak var registerAsBenefactorLabel: UILabel!{
+    @IBOutlet weak var registerView: UIView!{
         didSet{
-            registerAsBenefactorLabel.text = "Register as Benefactor".localized
+            //      .....for corner and shadow design.......
+            registerView.layer.cornerRadius = 40
+            registerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+            registerView.layer.shadowRadius = 15
+            registerView.layer.shadowOpacity = 0.6
+        }
+    }
+    @IBOutlet weak var userTypeButton: UIButton!{
+        didSet{
+            //      ......for corner and shadow design.......
+            userTypeButton.layer.borderWidth = 0.5
+            userTypeButton.layer.borderColor = UIColor.systemBlue.cgColor
+            userTypeButton.layer.cornerRadius = userTypeButton.frame.size.width / 2.0
+            userTypeButton.backgroundColor = .systemBackground
         }
     }
     
@@ -117,7 +113,7 @@ class RegisterViewController: UIViewController{
         
         imagePickerController.delegate = self
         
-//        return keybord
+        //      ......return keybord......
         userNameTextField.delegate = self
         userGenderTextField.delegate = self
         userBirthDayTextField.delegate = self
@@ -126,18 +122,19 @@ class RegisterViewController: UIViewController{
         userPhoneNumberTextField.delegate = self
         userPasswordTextField.delegate = self
         userConfirmPasswordTextField.delegate = self
-    
-//         hide keybord
+        
+        
+        //      ......hide keybord.........
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
     }
     
-//     ...........for hiden password.................
+    //     ...........for hide password..........
     @IBAction func showPasswordButton(_ sender: AnyObject) {
         userPasswordTextField.isSecureTextEntry.toggle()
-        if userPasswordTextField.isSecureTextEntry{
+        if userPasswordTextField.isSecureTextEntry {
             if let image = UIImage(systemName: "eye.fill"){
                 sender.setImage(image, for: .normal)
             }
@@ -147,6 +144,11 @@ class RegisterViewController: UIViewController{
             }
         }
     }
+    //    ..........for keybord...........
+//    override func viewWillAppear(_ animated: Bool) {
+//        userPasswordTextField.autocorrectionType = .no
+//        userConfirmPasswordTextField.autocorrectionType = .no
+//    }
     @IBAction func showConfirmPasswordButton(_ sender: AnyObject) {
         userConfirmPasswordTextField.isSecureTextEntry.toggle()
         if userConfirmPasswordTextField.isSecureTextEntry{
@@ -160,7 +162,7 @@ class RegisterViewController: UIViewController{
         }
     }
     
-//   ................for ather user................
+    //   ................for ather user................
     var isBenefactor = false
     @IBAction func userTypeButton(_ sender: Any) {
         if isBenefactor {
@@ -172,7 +174,7 @@ class RegisterViewController: UIViewController{
         }
     }
     
-//    .................register Button...............
+    //    .................register Button...............
     @IBAction func handelRegisterButton(_ sender: Any) {
         if let image = userImageView.image,
            let imageData = image.jpegData(compressionQuality: 0.25),
@@ -240,8 +242,8 @@ class RegisterViewController: UIViewController{
                     }
                 }
             }
+        }
     }
-  }
 }
 extension RegisterViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     @objc func selectimage(){
@@ -271,7 +273,7 @@ extension RegisterViewController:UIImagePickerControllerDelegate,UINavigationCon
         }
     }
     func imagePickerController(_ Picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info : [UIImagePickerController.InfoKey : Any]){
+                               didFinishPickingMediaWithInfo info : [UIImagePickerController.InfoKey : Any]){
         guard let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         userImageView.image = chosenImage
         dismiss(animated: true, completion: nil)

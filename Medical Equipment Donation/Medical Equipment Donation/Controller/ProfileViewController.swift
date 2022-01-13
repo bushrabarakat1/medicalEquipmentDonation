@@ -13,28 +13,11 @@ class ProfileViewContrller: UIViewController{
     var selectedPost:Post?
     var selectedUserImage:UIImage?
     
-    @IBOutlet weak var userImageView: UIImageView!{
-        didSet{
-//            userImageView.layer.cornerRadius = 40
-            userImageView.layer.borderWidth = 2.0
-            userImageView.layer.cornerRadius = userImageView.bounds.height / 2
-            userImageView.layer.masksToBounds = true
-        }
-    }
-    @IBOutlet weak var profileView: UIView!{
-        didSet{
-            profileView.layer.cornerRadius = 40
-            profileView.layer.shadowRadius = 15
-            profileView.layer.shadowOpacity = 0.6
-        }
-    }
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userBirthDayLabel: UILabel!
     @IBOutlet weak var userCountryLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userPhoneNumberLabel: UILabel!
-    
-    
     
     @IBOutlet weak var titleProfilLabel: UINavigationItem!{
         didSet{
@@ -66,35 +49,48 @@ class ProfileViewContrller: UIViewController{
             phoneNumberLabel.text = "PhonNumber :".localized
         }
     }
+    @IBOutlet weak var userImageView: UIImageView!{
+        didSet{
+            userImageView.layer.borderWidth = 2.0
+            userImageView.layer.cornerRadius = userImageView.bounds.height / 2
+            userImageView.layer.masksToBounds = true
+        }
+    }
+    @IBOutlet weak var profileView: UIView!{
+        didSet{
+            profileView.layer.cornerRadius = 40
+            profileView.layer.shadowRadius = 15
+            profileView.layer.shadowOpacity = 0.6
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         getUser()
-
-}
+        
+    }
     func getUser() {
         let ref = Firestore.firestore()
         if let currentUser = Auth.auth().currentUser{
             ref.collection("users").document(currentUser.uid).addSnapshotListener { snapshot, error in
-            if let error = error {
-                print("DB ERROR Posts",error.localizedDescription)
+                if let error = error {
+                    print("DB ERROR Posts",error.localizedDescription)
+                }
+                if let snapshot = snapshot ,let userData = snapshot.data(){
+                    
+                    let user = User(dict: userData)
+                    self.userImageView.loadImageUsingCache(with: user.imageUrl)
+                    self.userNameLabel.text = user.userName
+                    self.userBirthDayLabel.text = user.birthDay
+                    self.userCountryLabel.text = user.country
+                    self.userEmailLabel.text = user.email
+                    self.userPhoneNumberLabel.text = user.phoneNumber
+                }
             }
-            if let snapshot = snapshot ,let userData = snapshot.data(){
-                
-                let user = User(dict: userData)
-                self.userImageView.loadImageUsingCache(with: user.imageUrl)
-                self.userNameLabel.text = user.userName
-                self.userBirthDayLabel.text = user.birthDay
-                self.userCountryLabel.text = user.country
-                self.userEmailLabel.text = user.email
-                self.userPhoneNumberLabel.text = user.phoneNumber
-
         }
-      }
     }
-  }
 }
-    
+
 
 

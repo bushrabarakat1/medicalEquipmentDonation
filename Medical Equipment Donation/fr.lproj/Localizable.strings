@@ -10,12 +10,12 @@
 "Login" = "Connexion";
 "Name :" = "Nom :";
 "Gender :" = "Le genre :";
-"BirthDay :" = "Date d'anniversaire :";
+"BirthDay :" = "DateD'anniversaire :";
 "Country :" = "Pays :";
 "Email :" = "E-mail :";
-"PhonNumber :" = "Numéro de téléphone :";
+"PhonNumber :" = "NuméroDeTéléphone :";
 "Password :" = "Mot de passe :";
-"ConfirmPassword :" = "Confirmez le mot de passe :";
+"ConfirmPassword :" = "ConfirmezLeMotDePasse :";
 "Register as Benefactor" = "S'inscrire comme bienfaiteur";
 "Logout" = "Se déconnecter";
 "MedicalEquipment" = "Équipement médical";
@@ -25,5 +25,6 @@
 "Update Post" = "Mettre à jour le message";
 "Add Post" = "Ajouter une publication";
 "My Profile" = "Mon profil";
+"Write your title here" = "Ecrivez votre titre ici";
 
 

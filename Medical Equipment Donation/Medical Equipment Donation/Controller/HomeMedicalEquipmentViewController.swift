@@ -9,18 +9,17 @@
 import UIKit
 import Firebase
 class HomeMedicalEquipmentViewController: UIViewController{
-  
+    
     var posts = [Post]()
     var selectedPost:Post?
     var selectedPostImage:UIImage?
     var selectedUserImage:UIImage?
-    
+    //    .....for search bar.......
     var filteredPost: [Post] = []
     let searchController = UISearchController(searchResultsController: nil)
-    
+    //    ..........................
     
     @IBOutlet weak var plusButton: UIBarButtonItem!
-    
     @IBOutlet weak var titleLabel: UINavigationItem!{
         didSet{
             titleLabel.title = "MedicalEquipment".localized
@@ -32,18 +31,19 @@ class HomeMedicalEquipmentViewController: UIViewController{
             postMedicalEquipmentTableView.dataSource = self
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getPosts()
-//       ........for search ................
+        //       ........for search bar................
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         definesPresentationContext = true
         searchController.searchResultsUpdater = self
-//       ...........for user type.............
+        //       .........for user type.............
         if let currentUser = Auth.auth().currentUser{
             let ref = Firestore.firestore()
             ref.collection("users").document(currentUser.uid).getDocument { userSnapshot, error in
@@ -59,7 +59,6 @@ class HomeMedicalEquipmentViewController: UIViewController{
                 }
             }
         }
-        // Do any additional setup after loading the view.
     }
     func getPosts() {
         let ref = Firestore.firestore()
@@ -81,50 +80,50 @@ class HomeMedicalEquipmentViewController: UIViewController{
                                let userData = userSnapshot.data(){
                                 let user = User(dict:userData)
                                 let post = Post(dict:postData,id:diff.document.documentID,user:user)
-
                                 
-                    switch diff.type {
-                    case .added :
-                        
-                       
+                                
+                                switch diff.type {
+                                case .added :
+                                    
+                                    
                                     self.postMedicalEquipmentTableView.beginUpdates()
-//                                    if snapshot.documentChanges.count != 1 {
-                                        self.posts.append(post)
-                                        
-                                        self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row:self.posts.count - 1,section: 0)],with: .automatic)
-//                                    }else {
-//                                        self.posts.insert(post,at:0)
-//
-//                                        self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
-//                                    }
+                                    //                                    if snapshot.documentChanges.count != 1 {
+                                    self.posts.append(post)
+                                    
+                                    self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row:self.posts.count - 1,section: 0)],with: .automatic)
+                                    //                                    }else {
+                                    //                                        self.posts.insert(post,at:0)
+                                    //
+                                    //                                        self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
+                                    //                                    }
                                     
                                     self.postMedicalEquipmentTableView.endUpdates()
                                     
                                     
-                        
-                    case .modified:
-                        let postId = diff.document.documentID
-                        if let currentPost = self.posts.first(where: {$0.id == postId}),
-                           let updateIndex = self.posts.firstIndex(where: {$0.id == postId}){
-                            let newPost = Post(dict:postData, id: postId, user: currentPost.user)
-                            self.posts[updateIndex] = newPost
-                            
-                            self.postMedicalEquipmentTableView.beginUpdates()
-                            self.postMedicalEquipmentTableView.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
-                            self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
-                            self.postMedicalEquipmentTableView.endUpdates()
-                            
-                        }
-                    case .removed:
-                        let postId = diff.document.documentID
-                        if let deleteIndex = self.posts.firstIndex(where: {$0.id == postId}){
-                            self.posts.remove(at: deleteIndex)
-                            
-                            self.postMedicalEquipmentTableView.beginUpdates()
-                            self.postMedicalEquipmentTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
-                            self.postMedicalEquipmentTableView.endUpdates()
-                            
-                        }
+                                    
+                                case .modified:
+                                    let postId = diff.document.documentID
+                                    if let currentPost = self.posts.first(where: {$0.id == postId}),
+                                       let updateIndex = self.posts.firstIndex(where: {$0.id == postId}){
+                                        let newPost = Post(dict:postData, id: postId, user: currentPost.user)
+                                        self.posts[updateIndex] = newPost
+                                        
+                                        self.postMedicalEquipmentTableView.beginUpdates()
+                                        self.postMedicalEquipmentTableView.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
+                                        self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
+                                        self.postMedicalEquipmentTableView.endUpdates()
+                                        
+                                    }
+                                case .removed:
+                                    let postId = diff.document.documentID
+                                    if let deleteIndex = self.posts.firstIndex(where: {$0.id == postId}){
+                                        self.posts.remove(at: deleteIndex)
+                                        
+                                        self.postMedicalEquipmentTableView.beginUpdates()
+                                        self.postMedicalEquipmentTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
+                                        self.postMedicalEquipmentTableView.endUpdates()
+                                        
+                                    }
                                     
                                 }
                             }
@@ -163,6 +162,7 @@ class HomeMedicalEquipmentViewController: UIViewController{
         }
     }
 }
+
 extension HomeMedicalEquipmentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  searchController.isActive ?filteredPost.count : posts.count
@@ -176,11 +176,11 @@ extension HomeMedicalEquipmentViewController: UITableViewDataSource {
     }
     
 }
+//     .............for tableview.............
 extension HomeMedicalEquipmentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! PostCellMedicalEquipment
         selectedPostImage = cell.postImageView.image
@@ -195,8 +195,8 @@ extension HomeMedicalEquipmentViewController: UITableViewDelegate {
             performSegue(withIdentifier: "toDetailsVC", sender: self)
         }
     }
-    
 }
+//       ............for search bar.............
 extension HomeMedicalEquipmentViewController:UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         filteredPost = posts.filter({ selectedPost in
