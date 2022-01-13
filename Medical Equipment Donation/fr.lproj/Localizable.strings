@@ -9,7 +9,7 @@
 "Register" = "S'inscrire";
 "Login" = "Connexion";
 "Name :" = "Nom :";
-"Gender :" = "Le genre :";
+"Gender :" = "Genre :";
 "BirthDay :" = "DateDeNaissance :";
 "Country :" = "Pays :";
 "Email :" = "E-mail :";
@@ -20,7 +20,7 @@
 "Logout" = "Se déconnecter";
 "MedicalEquipment" = "Équipement médical";
 "Title :" = "Titre :";
-"Description :" = "La description :";
+"Description :" = "Description :";
 "Contact" = "Contact";
 "Update Post" = "Mettre à jour le message";
 "Add Post" = "Ajouter une publication";

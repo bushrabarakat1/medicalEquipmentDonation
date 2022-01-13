@@ -122,7 +122,6 @@ class RegisterViewController: UIViewController{
         userPasswordTextField.delegate = self
         userConfirmPasswordTextField.delegate = self
         
-        
         //......hide keybord.........
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
