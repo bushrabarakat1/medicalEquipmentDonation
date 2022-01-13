@@ -10,12 +10,12 @@
 "Login" = "Connexion";
 "Name :" = "Nom :";
 "Gender :" = "Le genre :";
-"BirthDay :" = "DateD'anniversaire :";
+"BirthDay :" = "DateDeNaissance :";
 "Country :" = "Pays :";
 "Email :" = "E-mail :";
-"PhonNumber :" = "NuméroDeTéléphone :";
+"PhonNumber :" = "Téléphone :";
 "Password :" = "Mot de passe :";
-"ConfirmPassword :" = "ConfirmezLeMotDePasse :";
+"ConfirmPassword :" = "Mot de Passe :";
 "Register as Benefactor" = "S'inscrire comme bienfaiteur";
 "Logout" = "Se déconnecter";
 "MedicalEquipment" = "Équipement médical";
