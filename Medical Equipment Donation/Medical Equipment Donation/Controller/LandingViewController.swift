@@ -13,6 +13,11 @@ class LandingViewController: UIViewController{
             imageView.layer.cornerRadius = 40
         }
     }
+    @IBOutlet weak var medicalEquipmentDonationLabel: UILabel!{
+        didSet{
+            medicalEquipmentDonationLabel.text = "Medical Equipment Donation".localized
+        }
+    }
     @IBOutlet weak var helloLabel: UILabel!{
         didSet{
             helloLabel.text = "H E L L O".localized
@@ -32,7 +37,7 @@ class LandingViewController: UIViewController{
     }
     @IBOutlet weak var registAndLoginView: UIView!{
         didSet{
-            //        ..........corner and shadow design.............
+            //..........corner and shadow design.............
             registAndLoginView.layer.cornerRadius = 40
             registAndLoginView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
             registAndLoginView.layer.shadowOffset = CGSize(width: 10, height: 10)
@@ -42,12 +47,12 @@ class LandingViewController: UIViewController{
     }
     @IBOutlet weak var langugeChangeSegmented: UISegmentedControl!{
         didSet {
-            //       ..............for shadow design.........................
+            //..............for shadow design.........................
             langugeChangeSegmented.layer.shadowOffset = CGSize(width: 10, height: 10)
             langugeChangeSegmented.layer.shadowRadius = 20
             langugeChangeSegmented.layer.shadowOpacity = 0.9
             
-            //       ................for transalate...........................
+            //................for transalate...........................
             if let language = UserDefaults.standard.string(forKey: "currentLanguage") {
                 switch language {
                 case "ar":

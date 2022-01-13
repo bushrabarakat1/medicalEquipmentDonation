@@ -128,8 +128,8 @@
 		118B220C2777908F00B54273 = {
 			isa = PBXGroup;
 			children = (
-				114DC1902782F0560025ACE5 /* Localizable.strings */,
 				118B22172777908F00B54273 /* Medical Equipment Donation */,
+				114DC1902782F0560025ACE5 /* Localizable.strings */,
 				118B22162777908F00B54273 /* Products */,
 			);
 			sourceTree = "<group>";

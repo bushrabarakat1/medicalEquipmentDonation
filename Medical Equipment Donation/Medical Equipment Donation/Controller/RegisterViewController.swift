@@ -26,7 +26,7 @@ class RegisterViewController: UIViewController{
     @IBOutlet weak var userConfirmPasswordTextField: UITextField!
     @IBOutlet weak var containtRegisterInformationView: UIView!{
         didSet{
-            //       .....for corner design.......
+            //.....for corner design.......
             containtRegisterInformationView.layer.cornerRadius = 40
         }
     }
@@ -50,7 +50,6 @@ class RegisterViewController: UIViewController{
             countryLabel.text = "Country :".localized
         }
     }
-    
     @IBOutlet weak var emailLabel: UILabel!{
         didSet{
             emailLabel.text = "Email :".localized
@@ -91,7 +90,7 @@ class RegisterViewController: UIViewController{
     }
     @IBOutlet weak var registerView: UIView!{
         didSet{
-            //      .....for corner and shadow design.......
+            //.....for corner and shadow design.......
             registerView.layer.cornerRadius = 40
             registerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
             registerView.layer.shadowRadius = 15
@@ -100,7 +99,7 @@ class RegisterViewController: UIViewController{
     }
     @IBOutlet weak var userTypeButton: UIButton!{
         didSet{
-            //      ......for corner and shadow design.......
+            //......for corner and shadow design.......
             userTypeButton.layer.borderWidth = 0.5
             userTypeButton.layer.borderColor = UIColor.systemBlue.cgColor
             userTypeButton.layer.cornerRadius = userTypeButton.frame.size.width / 2.0
@@ -113,7 +112,7 @@ class RegisterViewController: UIViewController{
         
         imagePickerController.delegate = self
         
-        //      ......return keybord......
+        //......return keybord......
         userNameTextField.delegate = self
         userGenderTextField.delegate = self
         userBirthDayTextField.delegate = self
@@ -124,14 +123,14 @@ class RegisterViewController: UIViewController{
         userConfirmPasswordTextField.delegate = self
         
         
-        //      ......hide keybord.........
+        //......hide keybord.........
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
     }
     
-    //     ...........for hide password..........
+    //...........for hide password..........
     @IBAction func showPasswordButton(_ sender: AnyObject) {
         userPasswordTextField.isSecureTextEntry.toggle()
         if userPasswordTextField.isSecureTextEntry {
@@ -162,7 +161,7 @@ class RegisterViewController: UIViewController{
         }
     }
     
-    //   ................for ather user................
+    //................for ather user................
     var isBenefactor = false
     @IBAction func userTypeButton(_ sender: Any) {
         if isBenefactor {
@@ -174,7 +173,7 @@ class RegisterViewController: UIViewController{
         }
     }
     
-    //    .................register Button...............
+    //.................register Button...............
     @IBAction func handelRegisterButton(_ sender: Any) {
         if let image = userImageView.image,
            let imageData = image.jpegData(compressionQuality: 0.25),

@@ -18,7 +18,6 @@ class DetailsMedicalEquipmentViewController: UIViewController{
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userPhoneNumberLabel: UILabel!
-    
     @IBOutlet weak var postMedicalEquipmentImageView: UIImageView!{
         didSet{
             postMedicalEquipmentImageView.layer.cornerRadius = 40

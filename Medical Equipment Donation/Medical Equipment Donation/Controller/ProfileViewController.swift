@@ -18,7 +18,6 @@ class ProfileViewContrller: UIViewController{
     @IBOutlet weak var userCountryLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userPhoneNumberLabel: UILabel!
-    
     @IBOutlet weak var titleProfilLabel: UINavigationItem!{
         didSet{
             titleProfilLabel.title = "My Profile".localized

@@ -30,7 +30,7 @@ class LoginViewController : UIViewController {
     }
     @IBOutlet weak var emailTextField: UITextField!{
         didSet{
-            //       ......for cornar and shadow design.....
+            //......for cornar and shadow design.....
             emailTextField.layer.cornerRadius = 40
             emailTextField.layer.shadowRadius = 15
             emailTextField.layer.shadowOpacity = 0.6
@@ -38,7 +38,7 @@ class LoginViewController : UIViewController {
     }
     @IBOutlet weak var passwordTextField: UITextField!{
         didSet{
-            //       ......for cornar and shadow design.....
+            //......for cornar and shadow design.....
             passwordTextField.layer.cornerRadius = 40
             passwordTextField.layer.shadowRadius = 15
             passwordTextField.layer.shadowOpacity = 0.6
@@ -46,7 +46,7 @@ class LoginViewController : UIViewController {
     }
     @IBOutlet weak var loginView: UIView!{
         didSet{
-            //       ......for corner and shadow design.....
+            //......for corner and shadow design.....
             loginView.layer.cornerRadius = 40
             loginView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
             loginView.layer.shadowRadius = 15
@@ -56,15 +56,15 @@ class LoginViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //     ........hide keybord.......
+        //........hide keybord.......
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
-        //      .......return keybord......
+        //.......return keybord......
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
-    //    ....hide or show passowrd....
+    //....hide or show passowrd....
     @IBAction func showPassowrdButton(_ sender: AnyObject) {
         passwordTextField.isSecureTextEntry.toggle()
         if passwordTextField.isSecureTextEntry{
