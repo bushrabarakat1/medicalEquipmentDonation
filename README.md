@@ -5,7 +5,7 @@
 
 
 ## Demo
-![](light.English.gif)
+![](light.english.gif)
 ![](dark.Arabic.gif)
 ![](dark.french.gif)
 
