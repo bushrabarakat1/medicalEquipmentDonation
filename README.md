@@ -1,7 +1,7 @@
 # medicalEquipmentDonation
 
 ## Description
-- An aplication that donate of medical equipmen.
+- An aplication that donate of medical equipment.
 
 
 ## Demo
