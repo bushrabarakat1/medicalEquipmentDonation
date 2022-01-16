@@ -15,7 +15,7 @@ class HomeMedicalEquipmentViewController: UIViewController{
     var selectedPostImage:UIImage?
     var selectedUserImage:UIImage?
     //.....for search bar.......
-    var filteredPost: [Post] = []
+    var filteredPost : [Post] = []
     let searchController = UISearchController(searchResultsController: nil)
     //..........................
     

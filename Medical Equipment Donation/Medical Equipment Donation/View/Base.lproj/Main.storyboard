@@ -124,7 +124,9 @@
                             <constraint firstItem="GwC-6E-d5d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yCp-hK-oqi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="BQE-eW-rqy"/>
+                    <navigationItem key="navigationItem" id="BQE-eW-rqy">
+                        <barButtonItem key="backBarButtonItem" title=" " id="GCp-u5-eKM"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="helloLabel" destination="ax6-oY-F28" id="DV4-cr-ygp"/>
                         <outlet property="imageView" destination="Tpe-Vv-GjA" id="gDZ-Q7-B90"/>
@@ -445,7 +447,9 @@
                             <constraint firstItem="Frm-L2-c58" firstAttribute="top" secondItem="IOT-k8-YVn" secondAttribute="bottom" id="tcX-tc-zDK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2Ue-h2-X9m"/>
+                    <navigationItem key="navigationItem" id="2Ue-h2-X9m">
+                        <barButtonItem key="backBarButtonItem" title=" " id="dnM-2B-Jx6"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="birthDayLabel" destination="ZLm-0N-Zk1" id="eMr-Qz-YKC"/>
                         <outlet property="confirmPasswordLabel" destination="jFx-Su-9jj" id="mh4-O9-7I6"/>
@@ -661,7 +665,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="82" id="WVj-FW-ozC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
