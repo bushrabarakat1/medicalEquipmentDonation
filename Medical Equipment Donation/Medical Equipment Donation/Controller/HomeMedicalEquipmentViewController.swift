@@ -14,6 +14,9 @@ class HomeMedicalEquipmentViewController: UIViewController{
     var selectedPost:Post?
     var selectedPostImage:UIImage?
     var selectedUserImage:UIImage?
+    //    //.....for search bar.......
+    var filteredPost : [Post] = []
+    let searchController = UISearchController(searchResultsController: nil)
     //..........................
     
     @IBOutlet weak var plusButton: UIBarButtonItem!
@@ -33,13 +36,13 @@ class HomeMedicalEquipmentViewController: UIViewController{
         super.viewDidLoad()
         
         getPosts()
-        //........for search bar................
-//        navigationItem.searchController = searchController
-//        navigationItem.hidesSearchBarWhenScrolling = true
-//        searchController.obscuresBackgroundDuringPresentation = false
-//        searchController.searchBar.placeholder = "Search"
-//        definesPresentationContext = true
-//        searchController.searchResultsUpdater = self
+        //        //........for search bar................
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        definesPresentationContext = true
+        searchController.searchResultsUpdater = self
         //.........for user type.............
         if let currentUser = Auth.auth().currentUser{
             let ref = Firestore.firestore()
@@ -85,14 +88,14 @@ class HomeMedicalEquipmentViewController: UIViewController{
                                     
                                     self.postMedicalEquipmentTableView.beginUpdates()
                                     if snapshot.documentChanges.count != 1 {
-                                    self.posts.append(post)
-                                    
-                                    self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row:self.posts.count - 1,section: 0)],with: .automatic)
-                                        }else {
+                                        self.posts.append(post)
+                                        
+                                        self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row:self.posts.count - 1,section: 0)],with: .automatic)
+                                    }else {
                                         self.posts.insert(post,at:0)
-                                    
+                                        
                                         self.postMedicalEquipmentTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
-                                                                        }
+                                    }
                                     
                                     self.postMedicalEquipmentTableView.endUpdates()
                                     
@@ -162,11 +165,16 @@ class HomeMedicalEquipmentViewController: UIViewController{
 
 extension HomeMedicalEquipmentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  posts.count
+        return  searchController.isActive ?filteredPost.count : posts.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCellMedicalEquipment
+        let post = searchController.isActive ? filteredPost[indexPath.row]: posts[indexPath.row]
+        DispatchQueue.main.async {
+            cell.postTitleLabel.text = post.title
+        }
+        cell.postTitleLabel.text = post.title
+//        cell.configure(with: post)
         cell.selectionStyle = .none
         return cell.configure(with: posts[indexPath.row])
     }
@@ -191,7 +199,14 @@ extension HomeMedicalEquipmentViewController: UITableViewDelegate {
         }
     }
 }
-
-
+//............for search bar.............
+extension HomeMedicalEquipmentViewController:UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        filteredPost = posts.filter({ selectedPost in
+            return selectedPost.title.lowercased().contains(searchController.searchBar.text!.lowercased())
+        })
+        postMedicalEquipmentTableView.reloadData()
+    }
+}
 
 

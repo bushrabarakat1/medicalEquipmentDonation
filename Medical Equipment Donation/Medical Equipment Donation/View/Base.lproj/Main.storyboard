@@ -48,7 +48,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Register"/>
                                                 <connections>
-                                                    <segue destination="MJG-BV-Eam" kind="show" id="8dQ-l8-pKL"/>
+                                                    <segue destination="MJG-BV-Eam" kind="show" id="zXb-9z-gad"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAq-Rx-8QQ">
@@ -464,6 +464,8 @@
                         <outlet property="registerAsBenefactorLabel" destination="zmG-dK-TED" id="1yh-AK-NRa"/>
                         <outlet property="registerButton" destination="kJc-i4-dtz" id="Tdc-56-cgC"/>
                         <outlet property="registerView" destination="BRD-od-B9F" id="3mx-os-6TY"/>
+                        <outlet property="showConfirmPasswordButton" destination="Frm-L2-c58" id="yU6-e9-kbQ"/>
+                        <outlet property="showPasswordButton" destination="IOT-k8-YVn" id="Ba2-Un-2vc"/>
                         <outlet property="userBirthDayTextField" destination="wm0-Zn-Ntb" id="ghJ-4u-IRN"/>
                         <outlet property="userConfirmPasswordTextField" destination="uuW-0Q-mRH" id="hK8-Ul-xZR"/>
                         <outlet property="userCountryTextField" destination="3gb-1k-3Ry" id="ZS7-KO-a91"/>
@@ -1125,6 +1127,7 @@
                         <outlet property="loginView" destination="eeJ-Pz-L4P" id="K83-ym-uYb"/>
                         <outlet property="passwordLabel" destination="aX6-2e-2Jy" id="9Bo-hn-TgM"/>
                         <outlet property="passwordTextField" destination="bij-bk-4WW" id="dDl-GT-4JU"/>
+                        <outlet property="showPasswordButton" destination="o20-hm-I9H" id="o2G-Ae-Mmq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvy-VO-LzW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

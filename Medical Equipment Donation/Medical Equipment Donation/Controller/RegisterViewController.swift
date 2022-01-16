@@ -106,6 +106,9 @@ class RegisterViewController: UIViewController{
             userTypeButton.backgroundColor = .systemBackground
         }
     }
+    @IBOutlet weak var showPasswordButton: UIButton!
+    @IBOutlet weak var showConfirmPasswordButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,7 +129,11 @@ class RegisterViewController: UIViewController{
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
-        
+//       .....eye password......
+        userPasswordTextField.rightView = showPasswordButton
+        userPasswordTextField.rightViewMode = .always
+        userConfirmPasswordTextField.rightView = showConfirmPasswordButton
+        userConfirmPasswordTextField.rightViewMode = .always
     }
     
     //...........for hide password..........

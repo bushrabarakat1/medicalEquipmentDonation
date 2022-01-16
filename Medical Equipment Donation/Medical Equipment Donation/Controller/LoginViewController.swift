@@ -53,6 +53,7 @@ class LoginViewController : UIViewController {
             loginView.layer.shadowOpacity = 0.6
         }
     }
+    @IBOutlet weak var showPasswordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +64,8 @@ class LoginViewController : UIViewController {
         //.......return keybord......
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        passwordTextField.rightView = showPasswordButton
+        passwordTextField.rightViewMode = .always
     }
     //....hide or show passowrd....
     @IBAction func showPassowrdButton(_ sender: AnyObject) {
