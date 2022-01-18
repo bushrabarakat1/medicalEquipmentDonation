@@ -67,7 +67,6 @@ class PostMedicalEquipmentViewController: UIViewController{
             phoneNumberLabel.text = "PhonNumber :".localized
         }
     }
-    
     @IBOutlet weak var postMedicalEquipmentImageView: UIImageView!{
         didSet {
             postMedicalEquipmentImageView.isUserInteractionEnabled = true
