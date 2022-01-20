@@ -149,11 +149,7 @@ class RegisterViewController: UIViewController{
             }
         }
     }
-    //    ..........for keybord...........
-//    override func viewWillAppear(_ animated: Bool) {
-//        userPasswordTextField.autocorrectionType = .no
-//        userConfirmPasswordTextField.autocorrectionType = .no
-//    }
+
     @IBAction func showConfirmPasswordButton(_ sender: AnyObject) {
         userConfirmPasswordTextField.isSecureTextEntry.toggle()
         if userConfirmPasswordTextField.isSecureTextEntry{

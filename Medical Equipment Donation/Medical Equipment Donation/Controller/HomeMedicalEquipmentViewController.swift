@@ -165,18 +165,20 @@ class HomeMedicalEquipmentViewController: UIViewController{
 
 extension HomeMedicalEquipmentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  searchController.isActive ?filteredPost.count : posts.count
+        return  searchController.isActive ? filteredPost.count : posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCellMedicalEquipment
         let post = searchController.isActive ? filteredPost[indexPath.row]: posts[indexPath.row]
         DispatchQueue.main.async {
             cell.postTitleLabel.text = post.title
+            cell.postDescriptionLabel.text = post.description
+            cell.postImageView.loadImageUsingCache(with: post.imageUrl)
+            cell.userNameLabel.text = post.user.userName
+            cell.userImageView.loadImageUsingCache(with: post.user.imageUrl)
         }
-        cell.postTitleLabel.text = post.title
-//        cell.configure(with: post)
         cell.selectionStyle = .none
-        return cell.configure(with: posts[indexPath.row])
+        return cell
     }
 }
 //.............for tableview.............
